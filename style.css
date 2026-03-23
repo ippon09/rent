@@ -298,8 +298,8 @@ legend {
 
 .offer_img {
     display: block;
-    width: 400px;
-    /* height: 100%; */
+    width: 100%;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -744,6 +744,8 @@ legend {
 
 .swiper {
     height: 250px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .custom-swiper-button-next {

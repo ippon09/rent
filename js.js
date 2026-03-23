@@ -77,10 +77,10 @@ function iniutOfferSlider() {
     grabCursor: true,
     centeredSlides: true,
     loop: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: true
-    },
+    // autoplay: {
+    //   delay: 2500,
+    //   disableOnInteraction: true
+    // },
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
