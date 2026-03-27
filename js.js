@@ -457,7 +457,7 @@ burger_btn.addEventListener('click', () => {
   const navItem = document.querySelectorAll('.navbar_item');
   header.classList.toggle('open');
   navi.classList.toggle('open');
-  navItems.style.background = 'white';
+  // navItems.style.background = 'white';
 });
 
 changeColorMenu()

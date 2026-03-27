@@ -1,32 +1,29 @@
 <?php
- require_once 'setting.php';
+//запрос к бд при помощи PHP (pdo)
+$connection=new PDO("mysql:host=localhost;dbname=monumentdb","root","mysql");
 
- $connection = new mySqli($host, $user, $pass, $data);
- if($connection->connect_error) die('connetction faelied');
+//запись данных-прямой запрос к бд
+// $query="INSERT INTO monuments(size, monument_type, person_number) VALUES('средний','заливной','на троих')";
 
+//вывод даннх одной строки
+// $query="SELECT * FROM monuments WHERE id__monument=17";
+// $stm=$connection->query($query);
 
-//запрос бд
-$query="SELECT * FROM monuments";
-$result=$connection->query($query);
+// $row=$stm->fetch(PDO::FETCH_ASSOC);
 
-if(!$result) die ('query failed');
+// echo "ID: " . $row['id__monument'] . '<br>';
+// echo "size: " .$row['size'] . '<br>';
+// echo "type: " .$row["monument_type"];
 
-echo '<pre>';
-print_r($result);
-echo '</pre>';
+$type='заливнойй';
+$size='большой';
+$person_number='на четверых';
 
+$sql="INSERT INTO monuments(size,monument_type,person_number) VALUES (:t,:size,:person_number)";
+$query=$connection->prepare($sql);//подготавливаем запрос
 
-$rows=$result->num_rows;
-for ($i=0; $i<$rows; ++$i){
-    $result->data_seek($i); 
-    $row=$result->fetch_assoc();
+$query->execute(['t'=>$type,'size'=>$size,'person_number'=>$person_number]);
 
-    echo "type " . $row['monument_type'] . '<br>';
-    
-    
-    echo "data of row:" .print_r($row) . '<br>';
-}
-$result->close();
-$connection->close();
-
+// $count=$connection->exec($query);
+// echo "кол-во добавленных строк: $count <br>";
 ?>

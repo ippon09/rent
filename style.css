@@ -113,10 +113,10 @@ legend {
 
 .container {
     margin: 0 auto;
-    text-align: center;
     padding-right: 80px;
     padding-left: 80px;
     align-items: center;
+    max-width: 1240px;
 }
 
 .navbar {
@@ -147,11 +147,12 @@ legend {
     height: 100%;
     /* background-image: url('images/top-bg5.jpg'); */
     background: linear-gradient(45deg, #0000003a, #000000b9), url('images/top-bg5.jpg');
+    background: linear-gradient(45deg, #0000003a, #000000b9), url('images/ritual_bg2.png');
+    /* background:url('images/ritual_bg2.png'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-position: center;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 .top_bg {
@@ -171,12 +172,21 @@ legend {
     text-shadow: 2px 0px 20px rgb(0, 0, 0);
     letter-spacing: 1.5px;
 }
-.soc_links_top{
+
+.subtitle {
+    font-family: "Sofia Sans Condensed", sans-serif;
+    text-shadow: 2px 0px 20px rgb(0, 0, 0);
+    letter-spacing: 1.5px;
+    font-size: 30px;
+}
+
+.soc_links_top {
     margin-top: 35px;
     display: flex;
     gap: 35px;
 }
-.soc_links_top  .soc_link_top_img{
+
+.soc_links_top .soc_link_top_img {
     width: 50px;
 }
 
@@ -187,6 +197,7 @@ legend {
 
 .top_info p:nth-child(1n) {
     padding-bottom: 20px;
+    text-align: center;
 }
 
 .top_info p:last-child {
@@ -240,6 +251,7 @@ legend {
     gap: 50px;
     margin-top: 50px;
     margin-bottom: 50px;
+
 }
 
 
@@ -254,6 +266,8 @@ legend {
     transition: all .1s ease-in-out;
     cursor: pointer;
     margin: auto;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .offers_item:hover {
@@ -728,7 +742,8 @@ legend {
     animation: call 1.25s ease-in-out infinite;
 
 }
-.offer_descr .call_img{
+
+.offer_descr .call_img {
     margin: 10px;
 }
 
@@ -867,6 +882,11 @@ legend {
     transform: translateY(0) rotate(-45deg);
 }
 
+.examples-section {
+    background: #f5f5f5;
+    padding: 50px 0;
+}
+
 
 
 
@@ -907,10 +927,6 @@ legend {
     .container {
         padding-right: 15px;
         padding-left: 15px;
-    }
-
-    .top_photo {
-        background-position-x: 75%;
     }
 
     .offers_item {
