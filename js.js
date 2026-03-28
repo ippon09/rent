@@ -1,7 +1,7 @@
 // import variants from './variants.js'
 
 const offers = document.querySelector('.offers_items');
-const main_title = document.getElementById('main_title');
+const main_title = document.querySelector('.examples-section');
 const scroll_btn = document.getElementById('mouse');
 const docsTitle = document.querySelector('.docs_title')
 
