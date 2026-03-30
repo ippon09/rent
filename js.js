@@ -487,6 +487,9 @@ $(document).on('click', '.share-max-link', function (e) {
   e.preventDefault();
   const url = window.location.href;
 
+  // Открываем СИНХРОННО — Safari разрешает window.open только внутри user gesture
+  window.open('https://web.max.ru', '_blank');
+
   function showCopiedToast() {
     const toast = document.createElement('div');
     toast.textContent = 'Ссылка скопирована!';
@@ -494,19 +497,14 @@ $(document).on('click', '.share-max-link', function (e) {
     document.body.appendChild(toast);
     setTimeout(() => {
       toast.style.opacity = '0';
-      setTimeout(() => {
-        document.body.removeChild(toast);
-        window.open('https://web.max.ru', '_blank');
-      }, 500);
+      setTimeout(() => document.body.removeChild(toast), 500);
     }, 1500);
   }
 
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(url)
       .then(() => showCopiedToast())
-      .catch(() => {
-        showCopiedToast();
-      });
+      .catch(() => showCopiedToast());
   } else {
     const tempInput = document.createElement('input');
     tempInput.value = url;
