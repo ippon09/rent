@@ -487,8 +487,14 @@ $(document).on('click', '.share-max-link', function (e) {
   e.preventDefault();
   const url = window.location.href;
 
-  // Открываем СИНХРОННО — Safari разрешает window.open только внутри user gesture
-  window.open('https://web.max.ru', '_blank');
+  // Открываем через <a> — Safari не блокирует в отличие от window.open
+  const a = document.createElement('a');
+  a.href = 'https://web.max.ru';
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 
   function showCopiedToast() {
     const toast = document.createElement('div');
