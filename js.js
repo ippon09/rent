@@ -489,6 +489,21 @@ $(document).on('click','.share-max-link', async function (e){
   const title=document.title;
   const url=window.location.href;
 
+  const isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if(isMobile && navigator.share){
+    try{
+      await navigator.share({
+        title:title,
+        url:url
+      });
+      return;
+    }catch(err){
+      console.log('Error sharing: ', err);
+    }
+  }
+  
+
+
   try{
     await navigator.clipboard.writeText(url);
     alert('link copied')
