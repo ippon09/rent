@@ -483,34 +483,37 @@ function changeColorMenu() {
 }
 
 
-$(document).on('click','.share-max-link', async function (e){
-  console.log('click')
+$(document).on('click', '.share-max-link', function (e) {
   e.preventDefault();
-  const title=document.title;
-  const url=window.location.href;
+  const url = window.location.href;
 
-  const isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  if(isMobile && navigator.share){
-    try{
-      await navigator.share({
-        title:title,
-        url:url
+  function showCopiedToast() {
+    const toast = document.createElement('div');
+    toast.textContent = 'Ссылка скопирована!';
+    toast.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:12px 24px;border-radius:8px;font-size:15px;z-index:99999;opacity:1;transition:opacity 0.5s;';
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      setTimeout(() => {
+        document.body.removeChild(toast);
+        window.open('https://web.max.ru', '_blank');
+      }, 500);
+    }, 1500);
+  }
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(url)
+      .then(() => showCopiedToast())
+      .catch(() => {
+        showCopiedToast();
       });
-      return;
-    }catch(err){
-      console.log('Error sharing: ', err);
-    }
+  } else {
+    const tempInput = document.createElement('input');
+    tempInput.value = url;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    showCopiedToast();
   }
-  
-
-
-  try{
-    await navigator.clipboard.writeText(url);
-    alert('link copied')
-  } catch(err){
-    alert('Failed to copy: ', err);
-  }
-   window.open('https://web.max.ru', '_blank');
-})
-
-
+});
