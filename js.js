@@ -185,6 +185,7 @@ function upper() {
   const upperKeyBlock = document.querySelector('.upper_key_block')
   const up = document.getElementById('upper_key');
   const topPhoto = document.querySelector('.top_photo')
+  if (!up || !upperKeyBlock) return;
   up.addEventListener('click', function () {
     topPhoto.scrollIntoView({ block: 'start', behavior: 'smooth' })
   })
@@ -429,6 +430,7 @@ form.addEventListener('submit', (e) => {
 function offersBtn() {
   const offersItems = document.querySelectorAll('.offers_item');
   const offersBtn = document.querySelector('.offers_btn');
+  if (!offersBtn) return;
   if (offersItems.length < 7) {
     offersBtn.classList.remove('hidden')
   }
@@ -481,6 +483,19 @@ function changeColorMenu() {
 }
 
 
+$(document).on('click','.share-max-link', async function (e){
+  console.log('click')
+  e.preventDefault();
+  const title=document.title;
+  const url=window.location.href;
 
+  try{
+    await navigator.clipboard.writeText(url);
+    alert('link copied')
+  } catch(err){
+    alert('Failed to copy: ', err);
+  }
+   window.open('https://web.max.ru', '_blank');
+})
 
 
