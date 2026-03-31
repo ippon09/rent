@@ -492,10 +492,11 @@ maxLinks.forEach(link=>{
     if(navigator.share&&isMobile){
         console.log('mob part')
       
-      navigator.share({
-        title:document.title,
-        url:window.location.href
-      })
+      // navigator.share({
+      //   title:document.title,
+      //   url:window.location.href
+      // })
+      window.open('https://web.max.ru/','_blank')
     }else{
       navigator.clipboard.writeText(window.location.href)
       console.log('clicked');
