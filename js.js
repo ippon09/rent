@@ -488,7 +488,10 @@ const maxLinks=document.querySelectorAll('.share-max-link');
 maxLinks.forEach(link=>{
   link.addEventListener('click',(e)=>{
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    console.log('userAgent',navigator.userAgent)
     if(navigator.share&&isMobile){
+        console.log('mob part')
+      
       navigator.share({
         title:document.title,
         url:window.location.href
