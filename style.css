@@ -937,6 +937,9 @@ legend {
 .gallery.gallery_blue {
     background: #eeeeee;
 }
+.hidden{
+    display: none !important;
+}
 
 
 @keyframes move {
