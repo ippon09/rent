@@ -1047,7 +1047,7 @@ a.navbar-brand {
 }
 
 .swiper-carved .swiper-slide {
-    max-width: 530px;
+    /* max-width: 530px; */
     height: 600px;
     img{
         object-fit: cover;
