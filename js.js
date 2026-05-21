@@ -14,12 +14,16 @@ arrow.addEventListener('click',function(){
 
 navlinks.forEach(link=>{
   link.addEventListener('click',function(e){
-    e.preventDefault();
-    const target=this.getAttribute('data-info');
-    const targetSection=document.getElementById(target);
-    if(targetSection){
-      targetSection.scrollIntoView({behavior:"smooth"});
-      console.log('targetSection',targetSection);
+    if(this.getAttribute('data-info')==="other-page"){
+      return
+    }else{
+      e.preventDefault();
+      const target=this.getAttribute('data-info');
+      const targetSection=document.getElementById(target);
+      if(targetSection){
+        targetSection.scrollIntoView({behavior:"smooth"});
+        console.log('targetSection',targetSection);
+      }
     }
   })
 })

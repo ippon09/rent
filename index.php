@@ -1,29 +1,539 @@
 <?php
-//запрос к бд при помощи PHP (pdo)
-$connection=new PDO("mysql:host=localhost;dbname=monumentdb","root","mysql");
-
-//запись данных-прямой запрос к бд
-// $query="INSERT INTO monuments(size, monument_type, person_number) VALUES('средний','заливной','на троих')";
-
-//вывод даннх одной строки
-// $query="SELECT * FROM monuments WHERE id__monument=17";
-// $stm=$connection->query($query);
-
-// $row=$stm->fetch(PDO::FETCH_ASSOC);
-
-// echo "ID: " . $row['id__monument'] . '<br>';
-// echo "size: " .$row['size'] . '<br>';
-// echo "type: " .$row["monument_type"];
-
-$type='заливнойй';
-$size='большой';
-$person_number='на четверых';
-
-$sql="INSERT INTO monuments(size,monument_type,person_number) VALUES (:t,:size,:person_number)";
-$query=$connection->prepare($sql);//подготавливаем запрос
-
-$query->execute(['t'=>$type,'size'=>$size,'person_number'=>$person_number]);
-
-// $count=$connection->exec($query);
-// echo "кол-во добавленных строк: $count <br>";
+include('path.php');
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
+        rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="images/monuments/111.jpg">
+    <title>Изготовление памятников</title>
+</head>
+<header class="header">
+    <!-- <div class="navbar">
+        <button class="header_burger_menu hidden">
+            <span></span>
+        </button>
+        <nav class="navi">
+            <ul class="navbar_list">
+                <li class="navbar_item"><a href="2.html">второй</a> </li>
+                <li class="navbar_item"><a href="#" data-route="fences">Ограды</a></li> 
+                <li class="navbar_item"><button style="margin: 0;" class="scroll_img nav-item">Примеры работ</button></li>
+            </ul>
+        </nav>
+    </div> -->
+<?php
+include ("app/include/header.php");
+?>
+</header>
+
+<body>
+
+    <section class="top_photo">
+
+
+        <div class="top_info container">
+            <h1 class="top_info_title">Ритуальные услуги</h1>
+            <!-- <p class="">Наша компания занимается изготовлением памятников различной формы и сложности, помогая сохранить память о близких на долгие годы <br> с заботой и вниманием к каждой детали.</p> -->
+            <p class="p-0 m-0">
+                Наша компания помогает сохранить память о близких на долгие годы с заботой и вниманием к каждой детали.
+                <br><br>
+                Занимаемся изготовлением и установкой памятников, мемориальных плит, оградок, облицовка могил брусчаткой или гранитными плитами.
+                <br>
+                Ритуальные товары (венки, кресты, гробы)
+            </p>
+
+            <a class="phone_number_top phone_number" href="tel:89275959070">8-927-59-59-070 </a>
+            <p class="p-0 m-0">С 1994 года создаём памятники, которые стоят десятилетиями. </p>
+            <ol class="soc_links soc_links_top">
+                <!-- <li><a href="#"><img class="soc_link_top_img" src="images/tg.png" alt=""></a></li> -->
+                <li><a href="https://max.ru/u/f9LHodD0cOLP1rdKr3fKwUz4Av5NfHLAGAwXr_2PeoNNa9QbEokncFgM-uk"><img class="soc_link_top_img" src="images/max.png" alt=""></a></li>
+            </ol>
+ 
+        </div>
+        <div id="scroll" class="scroll_block"><img id="mouse" data-info="examples-section" class="scroll_img " src="images/scroll.png"
+                alt="">
+        </div>
+    </section>
+
+
+
+
+    <section id="granite_carved-section" class="granite_carved-section">
+        <div class="gallery gallery_blue">
+            <div class="container">
+                                <div class="introduce-block" style="max-width: 500px;">
+                    <p class="subtitle mb1" style="font-size: 55px;">Памятники резные </p>
+                                </div>
+
+                    <div class="swiper swiper-carved">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img  src="images/granite_carved/granit_samples.jpg" alt="sample">                                
+                            </div>
+                            <div class="swiper-slide">
+                                <img  src="images/granite_carved/granit_carved1.jpg" alt="img">                                
+                            </div>
+                            <div class="swiper-slide">
+                                <img  src="images/granite_carved/granit_carved2.jpg" alt="img">                                
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="images/granite_carved/granit_carved3.jpg" alt="img">                                
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="images/granite_carved/granit_carved4.jpg" alt="img">                                
+                            </div>
+                                                        <div class="swiper-slide">
+                                <img src="images/granite_carved/granit_carved5.jpg" alt="img">                                
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>         
+            </div>
+        </div>
+
+
+    </section>
+        <section id="granite_figure-section" class="granite_figure-section">
+        <div class="gallery gallery_blue">
+            <div class="container">
+                                <div class="introduce-block" style="max-width: 500px;">
+                    <p class="subtitle mb1" style="font-size: 55px;">Памятники фигурные </p>
+                                </div>
+
+                    <div class="swiper swiper-carved">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img loading="lazy" src="images/granite_figure/granit_figured1.jpg" alt="img1">                                
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" src="images/granite_figure/granit_figured3.jpg" alt="img2">                                
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" src="images/granite_figure/granit_figured4.jpg" alt="img3">                                
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" src="images/granite_figure/granit_figured5.jpg" alt="img4">                                
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" src="images/granite_figure/granit_figured6.jpg" alt="img5">                                
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" src="images/granite_figure/granit_figured7.jpg" alt="img6">                                
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" src="images/granite_figure/granit_figured8.jpg" alt="img7">                                
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" src="images/granite_figure/granit_figured9.jpg" alt="img8">                                
+                            </div>
+                                <div class="swiper-slide">
+                                <img loading="lazy" src="images/granite_figure/granit_figured10.jpg" alt="img8">                                
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>         
+            </div>
+        </div>
+
+
+    </section>
+
+    <section id="fences-section" class="fences-section">
+        <div class="gallery">
+        <div class="container">
+            <p class="subtitle mb1" style="font-size: 55px;">Ограды</p>
+                <div class="gallery_two mb20">
+                    <div class="section-item">
+                        <img loading="lazy" src="images/fences/kosichka.jpg" alt="aa">
+                        <p>Косичка</p>
+                    </div>
+                    <div class="section-item">
+                    <img loading="lazy" src="images/fences/krest.jpg" alt="aa">
+                    <p>Крест</p>
+                    </div>
+            <div class="section-item">
+                <img loading="lazy" src="images/fences/lotos.jpg" alt="">
+                <p>Лотос</p>
+
+            </div>
+
+        <div class="section-item">
+            <img loading="lazy" src="images/fences/muza.jpg" alt="">
+            <p>Муза</p>
+        </div>
+        
+    </div>
+
+        </div>
+        </div>
+    </section>
+
+        <section id="signs-section" class="signs-section">
+            <div class="gallery gallery_blue">
+                <div class="container">
+                <p class="subtitle mb1" style="font-size: 55px;">Мемориальные плиты</p>
+                    <div class="gallery_two mb20">
+                                <div class="section-item">
+                <div class="section-item_img-wrapper">
+                    <img loading="lazy" src="images//signs/3.jpg" alt="">
+                </div>
+            </div>
+                        <div class="section-item">
+                            <div class="section-item_img-wrapper">
+                                <img loading="lazy" src="images/signs/1.jpg" alt="aa">                            
+                            </div>
+                        </div>
+                        <div class="section-item">
+                            <div class="section-item_img-wrapper">
+                                <img loading="lazy" src="images/signs/2.jpg" alt="aa">
+                            </div>
+                        </div>
+    
+    
+            
+        </div>
+            </div>
+
+        </div>
+    </section>
+    <section id="cross-section" class="cross-section">
+        <div class="container">
+            <div class="gallery">
+             <p class="subtitle mb1" style="font-size: 55px;">Кресты</p>
+
+
+                                    <div class="gallery-couple swiper couple-swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide"><img loading="lazy" src="images/crosses/cross_usual.jpg" alt="img"></div>
+                                            <div class="swiper-slide"><img loading="lazy" src="images/crosses/cross_hammer.jpg" alt="img"></div>
+                                        </div>
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
+                                    </div>
+
+
+            <!-- <div class="gallery_two">
+                <div class="section-item">
+                    <img src="images/crosses/cross_usual.jpg" alt="img">
+                </div>
+                <div class="section-item">
+                    <img src="images/crosses/cross_hammer.jpg" alt="img">
+                </div>
+            </div> -->
+        </div>
+    </div>
+    </section>
+        <section id="examples-section" class="examples-section">
+        <div class="gallery gallery_blue">
+            <div class="container">
+                      
+
+
+                <div class="introduce-block" style="max-width: 500px;">
+                    <p class="subtitle mb1" style="font-size: 55px;">Наши работы </p>
+                                </div>
+
+
+
+                                <div class="swiper swiper-monuments hidden">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">
+<div class="gallery-couple">
+    <div>
+        <img loading="lazy" src="images/monuments/111.jpg" alt="aa">        
+    </div>
+    <div>
+        <img loading="lazy" src="images/monuments/1111.jpg" alt="aa"> 
+    </div>
+</div>
+    </div>
+    <div class="swiper-slide">
+<div class="gallery-couple">
+    <div>
+        <img loading="lazy" src="images/monuments/0328.jpg" alt="0328">
+    </div>
+    <div>
+        <img loading="lazy"src="images/monuments/0328(2).jpg" alt="0328"> 
+    </div>
+</div>
+    </div>
+
+
+    <div class="swiper-slide">
+        <div class="gallery-couple">
+            <div>
+                <img loading="lazy" src="images/monuments/33.jpg" alt="">
+            </div>
+            <div>
+                <img loading="lazy" src="images/monuments/333.jpg" alt="">
+            </div>
+        </div>
+
+    </div>
+    ...
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
+
+
+
+                            <!-- <a href="/rent/2.html">2222</a> -->
+    
+                            <!-- <div class="gallery gallery_first"> -->
+                                <div class="gallery__list">
+                                <div class="gallery_two mb20">
+
+                                    <div class="gallery-couple swiper couple-swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide"><img loading="lazy" src="images/monuments/111.jpg" alt="aa"></div>
+                                            <div class="swiper-slide"><img loading="lazy" src="images/monuments/1111.jpg" alt="aa"></div>
+                                        </div>
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
+                                    </div>
+
+                                    <div class="gallery-couple swiper couple-swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide"><img loading="lazy" src="images/monuments/0328.jpg" alt="0328"></div>
+                                            <div class="swiper-slide"><img loading="lazy" src="images/monuments/0328(2).jpg" alt="0328"></div>
+                                        </div>
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
+                                    </div>
+
+                                    <div class="gallery-couple swiper couple-swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide"><img loading="lazy" src="images/monuments/33.jpg" alt=""></div>
+                                            <div class="swiper-slide"><img loading="lazy" src="images/monuments/333.jpg" alt=""></div>
+                                        </div>
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
+                                    </div>
+
+                                    <div class="gallery-couple swiper couple-swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide"><img loading="lazy" src="images/monuments/1.jpg" alt=""></div>
+                                            <div class="swiper-slide"><img loading="lazy" src="images/monuments/4.jpg" alt=""></div>
+                                        </div>
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
+                                    </div>
+
+                                </div>
+                                </div>
+                            <!-- </div> -->
+            </div>
+        </div>
+
+                <!-- <div class="gallery gallery_blue">
+            <div class="container ">
+                <div class="introduce-block" style="max-width: 500px;">
+                    <p class="subtitle mb1" style="font-size: 55px;">Технология установки </p>
+                                </div>
+                                <div class="gallery__list installation">
+                                <div class="gallery_two mb1">
+                                    <img src="images/monuments/6.jpg" alt="">
+                                    <img src="images/monuments/66.jpg" alt="">      
+                                    
+                                    
+
+                                    <img src="images/monuments/888.jpg" alt="">    
+                                    <img src="images/monuments/8.jpg" alt="">
+                                    
+                                    
+                                    
+                                </div>
+                                <img src="images/monuments/88.jpg" alt="">
+                                </div>
+            </div>
+        </div> -->
+
+
+    </section>
+
+    <!-- <section class="offers container">
+        <h1 id="main_title" class="main_title">Каталог</h1>
+
+        <div class="sale_block container">
+            <img class="sale_img" src="images/sale.png" alt="">
+            <p class="sale_title"> ЗИМНЯЯ АКЦИЯ !!! </p>
+            <p class="sale_subtitle">Любая свободная квартира после 19.00</p>
+            <p>1500 рублей (для пары)</p>
+        </div>
+        <div class="offers_items container">
+            <div class="offers_item">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="" alt="">
+                </div>
+            </div>            
+            <div class="custom-swiper-button-next"></div>
+            <div class="custom-swiper-button-prev"></div>
+        </div>
+        <div class="offer_descr">
+            <p class="title">Памятник 1</p>                
+            <div class="sub_title">
+            <ol>
+                <li>Короткое описание</li>
+            </ol>
+            </div>                
+            <p class="apart_address">Адрес</p>
+            <a href="tel:89033760101"><img class="call_img" src="images/call.png" alt=""></a>                
+            <a href="tel:81231231212" class="number">цена
+            </a>
+        </div>
+    </div>
+        </div>
+        <div class="popup hidden">
+            <div class="popup_back">
+                <div class="popup_content ">
+                </div>
+            </div>
+        </div>
+        </div>
+        <button class="offers_btn hidden">все варианты</button>
+        <div class="upper_key_block hidden">
+            <img id="upper_key" src="images/upper_key.png" alt="">
+        </div>
+    </section> -->
+    <!-- <section class="docs">
+        <h1 class="docs_title main_title container">Очетные документы</h1>
+        <div class="docs_items container offers_items">
+            <div class="docs_item">
+                <img class='docs_img' src="images/ogrn.jpg" alt="">
+                <p class="doc_sub">Свидетельство о государственной регистрации (ОГРН) <br> Режим налогообложения Налог
+                    на профессиональный доход (НПД).</p>
+            </div>
+            <div class="docs_item">
+                <img class='docs_img' src="images/qr.jpg" alt="">
+                <p class="doc_sub">QR код для оплаты на расчетный счет ИП Шлыкова М.М.</p>
+            </div>
+            <div class="docs_item">
+                <img class='docs_img' src="images/inn.jpg" alt="">
+                <p class="doc_sub">ИНН</p>
+            </div>
+        </div>
+    </section> -->
+<?php
+include("app/include/footer.php");
+?>
+
+    <!-- <section class="phone_form">
+        <div class="topphone_block container">
+            <h1>форма для заполненеия</h1>
+            <form class="phone_form" action="https://api.web3forms.com/submit" method="POST" name="tophone" action="">
+
+                <input type="hidden" name="access_key" value="4f75351a-4784-4ff5-ae66-4f76ab661494">
+
+                <label for="phone_name">Имя<input id="phone_name" class="topphone_input" placeholder="Enter Name"
+                        name="name" type="text"></label>
+                <label for="phone_number">Номер<input id="phone_number" class="topphone_input"
+                        placeholder="Enter number" name="name" type="tel"></label>
+
+                <button type="submit" class="phone_form_btn">Заказать звонок</button>
+
+            </form>
+        </div>
+
+    </section> -->
+<div class="modal fade maxModal" tabindex="-1" role="dialog" aria-labelledby="maxModalLabel" aria-hidden="true" id="maxModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Заголовок</h5>
+                <button data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                Ссылка скопирована в буфер обмена, теперь вы можете ее добавить к любому чату в Max.
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal">Закрыть</button>
+                <button>Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Clamp.js/0.5.1/clamp.min.js"></script>
+    <script src="variants.js"></script>
+    <script src="js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+</body>
+
+</html>
+
+
+
+<script>
+    // Инициализация слайдеров для каждого gallery-couple отдельно
+    document.querySelectorAll('.couple-swiper').forEach(function(el) {
+        new Swiper(el, {
+            // loop: true,
+            slidesPerView: 'auto',
+            spaceBetween: 10,
+            navigation: {
+                nextEl: el.querySelector('.swiper-button-next'),
+                prevEl: el.querySelector('.swiper-button-prev'),
+            },
+        });
+    });
+
+
+    new Swiper('.swiper-carved', {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    navigation: {
+        nextEl: '.swiper-carved .swiper-button-next',
+        prevEl: '.swiper-carved .swiper-button-prev',
+    },
+    pagination:{
+        el:'.swiper-carved .swiper-pagination',
+        type:'fraction',
+    },
+    breakpoints: {
+        992: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+        }
+    }
+});
+</script>
+
+
