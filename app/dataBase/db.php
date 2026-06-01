@@ -17,6 +17,8 @@ function dbCheckError($query)
     }
     return true;
 }
+
+//запрос на полчуние днных с одной таблицы
 function selectAll($table, $params=[])
 {
     global $pdo;
@@ -26,14 +28,19 @@ function selectAll($table, $params=[])
         echo tt($params);
         $i=0;
         foreach($params as $key=>$value){
+            if(!is_numeric($value)){
+                $value="'" . $value ."'";
+            }
              if($i===0){
-                $sql=$sql . " WHERE $key=>$value";
+                $sql=$sql . " WHERE $key=$value";
              }else{
-                $sql=$sql . " AND $key=>$value";
+                $sql=$sql . " AND $key=$value";
              }
              $i++;
         }
     }
+
+
 
     $query = $pdo->prepare($sql);
     $query->execute();
@@ -43,10 +50,46 @@ function selectAll($table, $params=[])
     $data = $query->fetchALL();
     return $data;
 }
+
+
+//запрос 6на поулчение однорй строки с выбранной таблицы
+
+function selectOne($table, $params=[]){
+    global $pdo;
+    $sql="SELECT * FROM $table";
+    
+    if(!empty ($params)){
+        $i=0;
+        foreach($params as $key=>$value){
+            if(!is_numeric($value)){
+                $value="'" . $value . "'";
+            }
+            if($i===0){
+                $sql=$sql ." WHERE $key=$value"; 
+            }else{
+                $sql=$sql ." AND $key=$value";
+            }
+            $i++;
+        }
+    }
+    $sql=$sql . " LIMIT 1";
+
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetch();
+
+
+
+}
+
+
 $params=[
-    'preson_number'=>'нав четверых',
-    'size'=>'большой'
+    // 'person_number'=>'на двоих',
+    // 'size'=>'маленький',
+    'monument_type'=>'заливнойй',
 ];
 
-tt(selectAll('monuments', $params));
+// tt(selectAll('monuments', $params));
+tt(selectOne('monuments'));
  
