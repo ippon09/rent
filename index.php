@@ -44,7 +44,7 @@ include ("app/include/header.php");
 <body>
 
     <section class="top_photo">
-
+        <div class="d-flex justify-content-between">
 
         <div class="top_info container">
             <h1 class="top_info_title">Ритуальные услуги</h1>
@@ -64,6 +64,20 @@ include ("app/include/header.php");
                 <li><a href="https://max.ru/u/f9LHodD0cOLP1rdKr3fKwUz4Av5NfHLAGAwXr_2PeoNNa9QbEokncFgM-uk"><img class="soc_link_top_img" src="images/max.png" alt=""></a></li>
             </ol>
  
+        </div>
+
+        <div class="advantages">
+            <div class="advantages_items">
+                <div class="advantages__item">
+                    <img src="images/monument.png" alt="advantages-icon">
+                    <div class="advantages__item-text">
+
+                    </div>
+                </div>
+            </div>
+            info tabs
+        </div>
+
         </div>
         <div id="scroll" class="scroll_block"><img id="mouse" data-info="examples-section" class="scroll_img " src="images/scroll.png"
                 alt="">

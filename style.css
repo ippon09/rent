@@ -968,7 +968,8 @@ legend {
     position: fixed;
     z-index: 2;
     width: 100%;
-    background: #2c2828;
+    backdrop-filter: blur(12px);
+    background-color: rgba(0, 0, 0, 0.309);
 }
 
 a.nav-link {
@@ -980,7 +981,17 @@ a.nav-link {
 }
 
 a.navbar-brand {
+    display: flex;
+    align-items: center;
     color: white;
+    height: 30px;
+    position: relative;
+}
+
+.navbar-brand__log-img {
+    position: relative;
+    /* right: 100%; */
+    height: 50px;
 }
 
 .navbar-toggler-icon {
@@ -1049,7 +1060,8 @@ a.navbar-brand {
 .swiper-carved .swiper-slide {
     max-width: 530px;
     height: 600px;
-    img{
+
+    img {
         object-fit: cover;
         height: 100%;
         width: 100%;
@@ -1068,7 +1080,8 @@ a.navbar-brand {
     border-radius: 50%;
     overflow: hidden;
 }
-.nav-link:hover{
+
+.nav-link:hover {
     color: coral;
 }
 

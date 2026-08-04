@@ -91,9 +91,9 @@ function selectOne($table, $params = [])
 tt(selectOne('monuments'));
 
     $arrData=[
-        'sz'=>'кастом',
-        'mt'=>'гранит',
-        'pn'=>'на четверых'
+        'size'=>'кастом',
+        'monument_type'=>'гранит',
+        'person_number'=>'на четверых'
     ];
 
 function insert($table, $params){
@@ -103,18 +103,23 @@ function insert($table, $params){
     $column='';
     $mask='';
     foreach ($params as $key=>$value){
-        #column=$column . $key;
-        $mask=$mask . $value;          
+        if($i===0){
+            $column=$column . $key ;
+            $mask=$mask . "'".$value."'";      
+        }else{
+            $column=$column . ", $key";
+            $mask=$mask . ", '". ""."$value"."'";  
+        }
         $i++;
     }
 
     $sql = "INSERT INTO $table ($column) VALUES ($mask)";
 
-    tt($sql);
-    exit();
+    // tt($sql);
+    // exit();
 
     $query=$pdo->prepare($sql);
-    $query->execute($arrData);
+    $query->execute($params);
     dbCheckError($query);
 }
 insert('monuments',$arrData);

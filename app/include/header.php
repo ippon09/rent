@@ -2,7 +2,7 @@
   <div class="container">
 
     <!-- Логотип -->
-    <a class="navbar-brand" style="color: white;"  data-info="other-page" href="<?php echo BASE_URL?>">Ритуал <span style="color: yellow;">08</span></a>
+    <a class="navbar-brand" style="color: white;"  data-info="other-page" href="<?php echo BASE_URL?>"><img class="navbar-brand__log-img me-3" src="images/logo-icon.png" alt=""> Ритуал <span style="color: yellow;">08</span></a>
 
     <!-- Кнопка для мобильных -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -11,14 +11,14 @@
 
     <!-- Пункты меню -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav">
 
         <li class="nav-item">
           <a class="nav-link" data-info="granite_carved-section" href="#">Памятники резные</a>
         </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
           <a class="nav-link" data-info="granite_figure-section" href="#">Памятники фигурные</a>
-        </li>
+        </li> -->
                 <li class="nav-item">
           <a class="nav-link" data-info="fences-section" href="#">Ограды</a>
         </li>
@@ -29,11 +29,9 @@
           <a class="nav-link" data-info="cross-section" href="#">Кресты</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" data-info="examples-section" href="#">Наши работы</a>
+          <a class="nav-link" data-info="examples-section" href="#">Наши работы</a>
         </li>
-          <li class="nav-item">
-          <a class="nav-link active" data-info="other-page" href="<?php echo SECOND_PAGE_URL; ?>">testPage</a>
-        </li>
+
 
         <!-- <li class="nav-item">
           <a class="nav-link" href="#">Услуги</a>
@@ -44,6 +42,10 @@
         </li> -->
 
       </ul>
+
+      <div class="number ms-auto">
+        <a href="tel:+380674444444" style="color:#fff;" class="number__link text-nowrap">8-927-59-59-070</a>
+      </div>
     </div>
 
   </div>
