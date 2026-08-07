@@ -171,6 +171,7 @@ legend {
     color: #fff;
     text-shadow: 2px 0px 20px rgb(0, 0, 0);
     letter-spacing: 1.5px;
+    padding: 0;
 }
 
 .subtitle {
@@ -183,6 +184,7 @@ legend {
 .soc_links_top {
     margin-top: 35px;
     display: flex;
+    justify-content: center;
     gap: 35px;
     padding: 0;
 }
@@ -1083,6 +1085,32 @@ a.navbar-brand {
 
 .nav-link:hover {
     color: coral;
+}
+.advantages_items{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.advantages__item {
+    backdrop-filter: blur(12px);
+    background-color: rgba(0, 0, 0, 0.309);
+    padding: 20px;
+    display: flex;
+    gap:10px;
+    justify-content: space-between;
+    border: 1px solid #b7b5b5;
+    border-radius: 10px;
+}
+.advantages__item-text{
+    line-height: normal;
+}
+.advantages__span{
+    font-size: 30px;
+}
+
+.advantages__img {
+    width: 100px;
 }
 
 @keyframes move {
