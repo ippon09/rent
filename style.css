@@ -138,7 +138,7 @@ legend {
 }
 
 
-.top_photo {
+.top-photo {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -153,6 +153,8 @@ legend {
     background-repeat: no-repeat;
     background-attachment: scroll;
     /* margin-bottom: 50px; */
+        padding-top: 87px;
+
 }
 
 .top_bg {
@@ -355,6 +357,10 @@ legend {
     font-size: 20px;
     cursor: pointer;
     transition: all linear .2s;
+}
+.number-descr{
+    font-size: 14px;
+    color:rgb(173, 173, 173);
 }
 
 .number:hover {
@@ -1083,9 +1089,13 @@ a.navbar-brand {
     overflow: hidden;
 }
 
-.nav-link:hover {
-    color: coral;
+.nav-link:hover,
+.nav-link:focus
+ {
+    color: #ffe85e;
+    border-bottom:1px solid #ffe85e;
 }
+
 .advantages_items{
     display:flex;
     flex-direction:column;

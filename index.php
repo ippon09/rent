@@ -10,7 +10,7 @@ include('path.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
@@ -40,10 +40,10 @@ include('path.php');
 
 <body>
 
-    <section class="top_photo">
+    <section class="top-photo">
 
         <!-- <div class="d-flex justify-content-between"> -->
-        <div class="top_info container">
+        <div class="top_info container hidden">
             <div class="d-flex justify-content-between">
                 <div class="text-center">
                     <h1 class="top_info_title">Ритуальные услуги</h1>
@@ -59,6 +59,8 @@ include('path.php');
                     </p>
 
                     <a class="phone_number_top phone_number" href="tel:89275959070">8-927-59-59-070 </a>
+                    <a class="phone_number_top phone_number m-0" href="tel:89275959070">8-903-37-69-002 </a>
+
                     <p class="p-0 m-0">С 1994 года создаём памятники, которые стоят десятилетиями. </p>
                     <ol class="soc_links soc_links_top">
                         <!-- <li><a href="#"><img class="soc_link_top_img" src="images/tg.png" alt=""></a></li> -->
@@ -72,7 +74,7 @@ include('path.php');
                         <div class="advantages__item">
                             <img class="advantages__img" src="images/monument.png" alt="advantages-icon">
                             <div class="advantages__item-text">
-                                <span class="advantages__span">1000+</span> выполненных работ
+                                <span class="advantages__span">30+ лет</span> опыта работы
                             </div>
                         </div>
                         <div class="advantages__item">
@@ -84,7 +86,7 @@ include('path.php');
                         <div class="advantages__item">
                             <img class="advantages__img" src="images/monument.png" alt="advantages-icon">
                             <div class="advantages__item-text">
-                                <span class="advantages__span">1000+</span> выполненных работ
+                                <span class="advantages__span">1000+</span> установленных памятников
                             </div>
                         </div>
                     </div>
@@ -92,6 +94,10 @@ include('path.php');
                 </div>
             </div>
         </div>
+        <div class="top-photo__text">
+            p.
+        </div>
+
 
 
         <!-- </div> -->
@@ -235,6 +241,16 @@ include('path.php');
                     <div class="section-item">
                         <div class="section-item_img-wrapper">
                             <img loading="lazy" src="images/signs/2.jpg" alt="aa">
+                        </div>
+                    </div>
+                    <div class="section-item">
+                        <div class="section-item_img-wrapper">
+                            <img loading="lazy" src="images/signs/sign_4.jpg" alt="aa">
+                        </div>
+                    </div>
+                    <div class="section-item">
+                        <div class="section-item_img-wrapper">
+                            <img loading="lazy" src="images/signs/sign_5.jpg" alt="aa">
                         </div>
                     </div>
 
