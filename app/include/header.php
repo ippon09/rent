@@ -2,7 +2,7 @@
   <div class="container">
 
     <!-- Логотип -->
-    <a class="navbar-brand" style="color: white;"  data-info="other-page" href="<?php echo BASE_URL?>"><img class="navbar-brand__log-img me-3" src="images/logo-icon.png" alt=""> Ритуал <span style="color: yellow;">08</span></a>
+    <a class="navbar-brand" style="color: white;"  data-info="other-page" href="<?php echo BASE_URL?>"><img class="navbar-brand__log-img me-3" src="images/logo-icon.png" alt=""> Ритуал <span>08</span></a>
 
     <!-- Кнопка для мобильных -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -45,6 +45,7 @@
 
       <div class="number ms-auto">
         <a href="tel:+380674444444" style="color:#fff;" class="number__link text-nowrap">8-927-59-59-070</a>
+        <p class="number-descr">круглосуточно</p>
       </div>
     </div>
 

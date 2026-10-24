@@ -9,9 +9,7 @@ include('path.php');
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
@@ -40,10 +38,44 @@ include('path.php');
 
 <body>
 
-    <section class="top_photo">
+    <section class="top-photo">
+        <div class="top-photo__wrapper container">        
+        <div class="top-photo__main">
+            <p class="subtitle color_gold">C 1994 ГОДА СОХРАНЯЕМ ПАМЯТЬ О БЛИЗКИХ</p>
+            <h1 class="title-hero color_white">Изготавливаем памятники и мемориальные комплексы с 1994 года</h1>
+            <p class="subtitle">Индивидуальный подход, качественные материалы и профессиональная установка под ключ.</p>
+            <div>
+                <button class="outline_btn">Посмотреть каталог</button>
+            </div>
+        </div>
+        <div class="advantages">
+            <div class="advantages_items">
+                <div class="advantages__item">
+                    <img class="advantages__img" src="icons/shield-icon.png" alt="advantages-icon">
+                    <div class="advantages__item-text color_white">
+                        <span class="advantages__span">1000+</span> выполненных работ
+                    </div>
+                </div>
+                <div class="advantages__item">
+                    <img class="advantages__img" src="icons/monument-icon.png"" alt="advantages-icon">
+                    <div class="advantages__item-text color_white">
+                        <span class="advantages__span">1000+</span> выполненных работ
+                    </div>
+                </div>
+                <div class="advantages__item">
+                    <img class="advantages__img" src="icons/reward-icon.png"" alt="advantages-icon">
+                    <div class="advantages__item-text color_white">
+                        <span class="advantages__span">1000+</span> выполненных работ
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
         <!-- <div class="d-flex justify-content-between"> -->
-        <div class="top_info container">
+        <div class="top_info container hidden">
             <div class="d-flex justify-content-between">
                 <div class="text-center">
                     <h1 class="top_info_title">Ритуальные услуги</h1>
