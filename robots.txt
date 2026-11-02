@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /app/
+Disallow: /setting.php
+Disallow: /path.php
+Disallow: /second_page.php
+
+Sitemap: https://xn--08-6kc5aq1api.xn--p1ai/sitemap.xml

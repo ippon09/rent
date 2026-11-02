@@ -46,19 +46,27 @@ include('path.php');
     ?>
 </header>
 
-<body>
 
     <section class="top-photo">
         <div class="top-photo__wrapper container">        
-        <div class="top-photo__main">
+            <div class="top-photo__main">
             <p class="subtitle color_gold">C 1994 ГОДА СОХРАНЯЕМ ПАМЯТЬ О БЛИЗКИХ</p>
             <h1 class="title-hero color_white">Изготавливаем памятники и мемориальные комплексы с 1994 года</h1>
             <p class="subtitle">Индивидуальный подход, качественные материалы и профессиональная установка под ключ.</p>
+                                <p class="subtitle p-0 mb-3">
+                        Наша компания помогает сохранить память о близких на долгие годы с заботой и вниманием к каждой
+                        детали.
+                        <br><br>
+                        Занимаемся изготовлением и установкой памятников, мемориальных плит, оградок, облицовка могил
+                        брусчаткой или гранитными плитами.
+                        <br><br>
+                        Ритуальные товары (венки, кресты, гробы)
+                    </p>
             <div>
                 <button class="outline_btn">Посмотреть каталог</button>
             </div>
-        </div>
-        <div class="advantages">
+         </div>
+            <div class="advantages">
             <div class="advantages_items">
                 <div class="advantages__item">
                     <img class="advantages__img" src="icons/shield-icon.png" alt="advantages-icon">
@@ -67,13 +75,13 @@ include('path.php');
                     </div>
                 </div>
                 <div class="advantages__item">
-                    <img class="advantages__img" src="icons/monument-icon.png"" alt="advantages-icon">
+                    <img class="advantages__img" src="icons/monument-icon.png" alt="advantages-icon">
                     <div class="advantages__item-text color_white">
                         <span class="advantages__span">1000+</span> выполненных работ
                     </div>
                 </div>
                 <div class="advantages__item">
-                    <img class="advantages__img" src="icons/reward-icon.png"" alt="advantages-icon">
+                    <img class="advantages__img" src="icons/reward-icon.png" alt="advantages-icon">
                     <div class="advantages__item-text color_white">
                         <span class="advantages__span">1000+</span> выполненных работ
                     </div>
@@ -88,7 +96,7 @@ include('path.php');
         <div class="top_info container hidden">
             <div class="d-flex justify-content-between">
                 <div class="text-center">
-                    <h1 class="top_info_title">Ритуальные услуги</h1>
+                    <h2 class="top_info_title">Ритуальные услуги</h2>
                     <!-- <p class="">Наша компания занимается изготовлением памятников различной формы и сложности, помогая сохранить память о близких на долгие годы <br> с заботой и вниманием к каждой детали.</p> -->
                     <p class="p-0 m-0">
                         Наша компания помогает сохранить память о близких на долгие годы с заботой и вниманием к каждой
