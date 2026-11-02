@@ -136,7 +136,7 @@ include('path.php');
                 </div>
             </div>
         </div>
-        <div class="top-photo__text">
+        <div class="top-photo__text hidden">
             p.
         </div>
 

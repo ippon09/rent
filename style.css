@@ -152,13 +152,33 @@ legend {
     /* background-image: url('images/top-bg5.jpg'); */
     /* background: linear-gradient(45deg, #0000003a, #000000b9), url('images/top-bg5.jpg');
     background: linear-gradient(45deg, #0000003a, #000000b9), url('images/ritual_bg2.png'); */
-    background: linear-gradient(45deg, #0000003a, #000000b9), url('images/monuments/111.jpg');
+    /* background: linear-gradient(45deg, #0000003a, #000000b9), url('images/monuments/111.jpg'); */
     /* background:url('images/ritual_bg2.png'); */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
+    position: relative;
+    overflow: hidden;
+    background: #000;
     padding-top: 87px;
     /* margin-bottom: 50px; */
+}
+
+/* фото слева на всю высоту блока, правый край растворяется в чёрном */
+.top-photo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    aspect-ratio: 4 / 3; /* пропорции 111.jpg (1280x960) */
+    max-width: 100%;
+    background: linear-gradient(45deg, #0000003a, #000000b9), url('images/monuments/111.jpg') center / cover no-repeat;
+    -webkit-mask-image: linear-gradient(90deg, #000 55%, transparent 100%);
+    mask-image: linear-gradient(90deg, #000 55%, transparent 100%);
+    z-index: 0;
+}
+
+.top-photo > * {
+    position: relative;
+    z-index: 1;
 }
 
 .top-photo__wrapper {
