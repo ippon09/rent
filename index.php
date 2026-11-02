@@ -46,7 +46,43 @@ include('path.php');
     ?>
 </header>
 
+<body>
+
     <section class="top-photo">
+        <div class="top-photo__wrapper container">        
+        <div class="top-photo__main">
+            <p class="subtitle color_gold">C 1994 ГОДА СОХРАНЯЕМ ПАМЯТЬ О БЛИЗКИХ</p>
+            <h1 class="title-hero color_white">Изготавливаем памятники и мемориальные комплексы с 1994 года</h1>
+            <p class="subtitle">Индивидуальный подход, качественные материалы и профессиональная установка под ключ.</p>
+            <div>
+                <button class="outline_btn">Посмотреть каталог</button>
+            </div>
+        </div>
+        <div class="advantages">
+            <div class="advantages_items">
+                <div class="advantages__item">
+                    <img class="advantages__img" src="icons/shield-icon.png" alt="advantages-icon">
+                    <div class="advantages__item-text color_white">
+                        <span class="advantages__span">1000+</span> выполненных работ
+                    </div>
+                </div>
+                <div class="advantages__item">
+                    <img class="advantages__img" src="icons/monument-icon.png"" alt="advantages-icon">
+                    <div class="advantages__item-text color_white">
+                        <span class="advantages__span">1000+</span> выполненных работ
+                    </div>
+                </div>
+                <div class="advantages__item">
+                    <img class="advantages__img" src="icons/reward-icon.png"" alt="advantages-icon">
+                    <div class="advantages__item-text color_white">
+                        <span class="advantages__span">1000+</span> выполненных работ
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
         <!-- <div class="d-flex justify-content-between"> -->
         <div class="top_info container hidden">
