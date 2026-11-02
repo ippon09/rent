@@ -2,9 +2,11 @@
 include('path.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +17,17 @@ include('path.php');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="images/monuments/111.jpg">
-    <title>Изготовление памятников</title>
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU"> 
+    <meta property="og:title" content="Ритуал 08 — изготовление памятников, Малые Дербеты">
+    <meta property="og:description" content="Памятники, ограды, мемориальные плиты и кресты. Изготовление и установка по Калмыкии.">
+    <meta property="og:url" content="https://xn--08-6kc5aq1api.xn--p1ai/">
+    <meta property="og:image" content="https://xn--08-6kc5aq1api.xn--p1ai/images/monuments/111.jpg">
+    <title>Изготовление памятников - Ритуал 08, Малые Дербеты, Калмыкия</title>
+    <meta name="description" content="Памятники, ограды, мемориальные плиты и кресты в с. Малые Дербеты и по Калмыкии: изготовление и установка, облицовка могил гранитом. Круглосуточно: 8-927-59-59-070.">
+    <link rel="canonical" href="https://xn--08-6kc5aq1api.xn--p1ai/">
 </head>
+<body>
 <header class="header">
     <!-- <div class="navbar">
         <button class="header_burger_menu hidden">
@@ -37,8 +45,6 @@ include('path.php');
     include("app/include/header.php");
     ?>
 </header>
-
-<body>
 
     <section class="top-photo">
 
@@ -541,18 +547,11 @@ include('path.php');
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Clamp.js/0.5.1/clamp.min.js"></script>
-    <script src="variants.js"></script>
     <script src="js.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
-</body>
 
-</html>
 
 
 
@@ -590,3 +589,6 @@ include('path.php');
         }
     });
 </script>
+</body>
+
+</html>
