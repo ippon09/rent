@@ -7,7 +7,9 @@ include('path.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="images/favicon-96x96.png" sizes="96x96" type="image/png">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -23,9 +25,28 @@ include('path.php');
     <meta property="og:description" content="Памятники, ограды, мемориальные плиты и кресты. Изготовление и установка по Калмыкии.">
     <meta property="og:url" content="https://xn--08-6kc5aq1api.xn--p1ai/">
     <meta property="og:image" content="https://xn--08-6kc5aq1api.xn--p1ai/images/monuments/111.jpg">
-    <title>Изготовление памятников - Ритуал 08, Малые Дербеты, Калмыкия</title>
-    <meta name="description" content="Памятники, ограды, мемориальные плиты и кресты в с. Малые Дербеты и по Калмыкии: изготовление и установка, облицовка могил гранитом. Круглосуточно: 8-927-59-59-070.">
+    <title>Ритуал 08 — памятники и ритуальные услуги, Малые Дербеты</title>
+    <meta name="description" content="Ритуал 08 — ритуальные услуги и товары в с. Малые Дербеты: изготовление и установка памятников, оград, плит и крестов. Круглосуточно: 8-927-59-59-070.">
     <link rel="canonical" href="https://xn--08-6kc5aq1api.xn--p1ai/">
+    <script type="application/ld+json">
+        {
+            "@context":"https://schema.org",
+            "@type":"LocalBusiness",
+            "name":"Ритуал 08",
+            "description":"Ритуальные услуги - изготовление и установка памятников, оград, мемориальных плит, крестов. Продажа ритуальных принадлежностей(гробы, венки, вазы, цветы, полотенца)",
+            "url": "https://xn--08-6kc5aq1api.xn--p1ai/",
+            "telephone": "+79275959070",
+            "image": "https://xn--08-6kc5aq1api.xn--p1ai/images/monuments/111.jpg",
+            "address":{
+                "@type": "PostalAddress",
+                "addressLocality": "с. Малые Дербеты",
+                "addressRegion": "Республика Калмыкия",
+                "addressCountry": "RU"
+            },
+            "areaServed": "Республика Калмыкия",
+            "openingHours": "Mo-Su 00:00-23:59"
+        }
+    </script>
 </head>
 <body>
 <header class="header">
@@ -53,14 +74,15 @@ include('path.php');
             <p class="subtitle color_gold">C 1994 ГОДА СОХРАНЯЕМ ПАМЯТЬ О БЛИЗКИХ</p>
             <h1 class="title-hero color_white">Изготавливаем памятники и мемориальные комплексы с 1994 года</h1>
             <p class="subtitle">Индивидуальный подход, качественные материалы и профессиональная установка под ключ.</p>
-                                <p class="subtitle p-0 mb-3">
+                    <p class="subtitle p-0 mb-3">
                         Наша компания помогает сохранить память о близких на долгие годы с заботой и вниманием к каждой
                         детали.
                         <br><br>
                         Занимаемся изготовлением и установкой памятников, мемориальных плит, оградок, облицовка могил
                         брусчаткой или гранитными плитами.
                         <br><br>
-                        Ритуальные товары (венки, кресты, гробы)
+                        Ритуальные услуги и товары: венки, кресты, гробы.
+
                     </p>
             <div>
                 <button class="outline_btn">Посмотреть каталог</button>

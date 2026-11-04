@@ -1,4 +1,4 @@
-    <sectiion class="footer">
+    <section class="footer">
         <div class="links">
             <div class="links_block">
                 <ol class="soc_links">
@@ -6,6 +6,7 @@
                 </ol>
             </div>
             <a class="footer_number" href="tel:89275959070">8-927-59-59-070</a>
+            <p style="margin:0; font-size:16px;" class="footer_address">Республика Калмыкия, с. Малые Дербеты</p>
         </div>
         <nav class="nav_otch_bg navbar">
             <!-- <ul class="navbar_list">
@@ -34,4 +35,4 @@
             <div class="close_topphone"></div>
         </div>
         </div>
-    </sectiion>
+    </section>
