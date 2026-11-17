@@ -71,19 +71,19 @@ include('path.php');
                 <div class="advantages__item">
                     <img class="advantages__img" src="icons/shield-icon.png" alt="advantages-icon">
                     <div class="advantages__item-text color_white">
-                        <span class="advantages__span">1000+</span> выполненных работ
+                        <span class="advantages__span">30+ <br> </span>лет опыта работы
                     </div>
                 </div>
                 <div class="advantages__item">
                     <img class="advantages__img" src="icons/monument-icon.png" alt="advantages-icon">
                     <div class="advantages__item-text color_white">
-                        <span class="advantages__span">1000+</span> выполненных работ
+                        <span class="advantages__span">1000+ <br> </span> выполненных работ
                     </div>
                 </div>
                 <div class="advantages__item">
                     <img class="advantages__img" src="icons/reward-icon.png" alt="advantages-icon">
                     <div class="advantages__item-text color_white">
-                        <span class="advantages__span">1000+</span> выполненных работ
+                        <span class="advantages__span"></span>Бесплатный <br> эскиз и расчёт стоимости
                     </div>
                 </div>
             </div>
@@ -328,15 +328,6 @@ include('path.php');
                     <div class="swiper-button-next"></div>
                 </div>
 
-
-                <!-- <div class="gallery_two">
-                <div class="section-item">
-                    <img src="images/crosses/cross_usual.jpg" alt="img">
-                </div>
-                <div class="section-item">
-                    <img src="images/crosses/cross_hammer.jpg" alt="img">
-                </div>
-            </div> -->
             </div>
         </div>
     </section>
@@ -403,10 +394,6 @@ include('path.php');
                 </div>
 
 
-
-                <!-- <a href="/rent/2.html">2222</a> -->
-
-                <!-- <div class="gallery gallery_first"> -->
                 <div class="gallery__list">
                     <div class="gallery_two mb20">
 
@@ -458,118 +445,15 @@ include('path.php');
             </div>
         </div>
 
-        <!-- <div class="gallery gallery_blue">
-            <div class="container ">
-                <div class="introduce-block" style="max-width: 500px;">
-                    <p class="subtitle mb1" style="font-size: 55px;">Технология установки </p>
-                                </div>
-                                <div class="gallery__list installation">
-                                <div class="gallery_two mb1">
-                                    <img src="images/monuments/6.jpg" alt="">
-                                    <img src="images/monuments/66.jpg" alt="">      
-                                    
-                                    
-
-                                    <img src="images/monuments/888.jpg" alt="">    
-                                    <img src="images/monuments/8.jpg" alt="">
-                                    
-                                    
-                                    
-                                </div>
-                                <img src="images/monuments/88.jpg" alt="">
-                                </div>
-            </div>
-        </div> -->
 
 
     </section>
 
-    <!-- <section class="offers container">
-        <h1 id="main_title" class="main_title">Каталог</h1>
 
-        <div class="sale_block container">
-            <img class="sale_img" src="images/sale.png" alt="">
-            <p class="sale_title"> ЗИМНЯЯ АКЦИЯ !!! </p>
-            <p class="sale_subtitle">Любая свободная квартира после 19.00</p>
-            <p>1500 рублей (для пары)</p>
-        </div>
-        <div class="offers_items container">
-            <div class="offers_item">
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="" alt="">
-                </div>
-            </div>            
-            <div class="custom-swiper-button-next"></div>
-            <div class="custom-swiper-button-prev"></div>
-        </div>
-        <div class="offer_descr">
-            <p class="title">Памятник 1</p>                
-            <div class="sub_title">
-            <ol>
-                <li>Короткое описание</li>
-            </ol>
-            </div>                
-            <p class="apart_address">Адрес</p>
-            <a href="tel:89033760101"><img class="call_img" src="images/call.png" alt=""></a>                
-            <a href="tel:81231231212" class="number">цена
-            </a>
-        </div>
-    </div>
-        </div>
-        <div class="popup hidden">
-            <div class="popup_back">
-                <div class="popup_content ">
-                </div>
-            </div>
-        </div>
-        </div>
-        <button class="offers_btn hidden">все варианты</button>
-        <div class="upper_key_block hidden">
-            <img id="upper_key" src="images/upper_key.png" alt="">
-        </div>
-    </section> -->
-    <!-- <section class="docs">
-        <h1 class="docs_title main_title container">Очетные документы</h1>
-        <div class="docs_items container offers_items">
-            <div class="docs_item">
-                <img class='docs_img' src="images/ogrn.jpg" alt="">
-                <p class="doc_sub">Свидетельство о государственной регистрации (ОГРН) <br> Режим налогообложения Налог
-                    на профессиональный доход (НПД).</p>
-            </div>
-            <div class="docs_item">
-                <img class='docs_img' src="images/qr.jpg" alt="">
-                <p class="doc_sub">QR код для оплаты на расчетный счет ИП Шлыкова М.М.</p>
-            </div>
-            <div class="docs_item">
-                <img class='docs_img' src="images/inn.jpg" alt="">
-                <p class="doc_sub">ИНН</p>
-            </div>
-        </div>
-    </section> -->
     <?php
     include("app/include/footer.php");
     ?>
 
-    <!-- <section class="phone_form">
-        <div class="topphone_block container">
-            <h1>форма для заполненеия</h1>
-            <form class="phone_form" action="https://api.web3forms.com/submit" method="POST" name="tophone" action="">
-
-                <input type="hidden" name="access_key" value="4f75351a-4784-4ff5-ae66-4f76ab661494">
-
-                <label for="phone_name">Имя<input id="phone_name" class="topphone_input" placeholder="Enter Name"
-                        name="name" type="text"></label>
-                <label for="phone_number">Номер<input id="phone_number" class="topphone_input"
-                        placeholder="Enter number" name="name" type="tel"></label>
-
-                <button type="submit" class="phone_form_btn">Заказать звонок</button>
-
-            </form>
-        </div>
-
-    </section> -->
     <div class="modal fade maxModal" tabindex="-1" role="dialog" aria-labelledby="maxModalLabel" aria-hidden="true"
         id="maxModal">
         <div class="modal-dialog">
