@@ -2,7 +2,7 @@
   <div class="container">
 
     <!-- Логотип -->
-    <a class="navbar-brand" style="color: white;"  data-info="other-page" href="<?php echo BASE_URL?>"><img class="navbar-brand__log-img me-3" src="images/logo-icon.png" alt="Ритуал 08"> Ритуал <span style="color: yellow;">08</span></a>
+    <a class="navbar-brand" style="color: white;"  data-info="other-page" href="<?php echo BASE_URL?>"><img class="navbar-brand__log-img me-3" src="images/logo-icon.png" alt=""> Ритуал <span style="color: yellow;">08</span></a>
 
     <!-- Кнопка для мобильных -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -10,7 +10,7 @@
     </button>
 
     <!-- Пункты меню -->
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" data-nosnippet id="navbarNav">
       <ul class="navbar-nav">
 
         <li class="nav-item">
