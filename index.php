@@ -77,7 +77,7 @@ $workFilters = [
     'all' => 'Все',
     'complex' => 'Комплексы',
     'fence' => 'Ограды',
-    'plate' => 'Плиты',
+    'plate' => 'Брусчатка',
     'monument' => 'Памятники',
 ];
 $works = [
@@ -318,6 +318,11 @@ foreach ($allWorks as $i => $src) {
                             <h3 class="why-item__title">Профессиональная установка</h3>
                             <p class="why-item__text">Опытные бригады и аккуратный монтаж</p>
                         </li>
+                        <li class="why-item">
+                            <svg class="why-item__icon" aria-hidden="true"><use href="icons/sprite.svg#clock"></use></svg>
+                            <h3 class="why-item__title">На связи круглосуточно</h3>
+                            <p class="why-item__text">Принимаем звонки в любое время, без выходных</p>
+                        </li>
                     </ul>
                 </div>
 
@@ -330,9 +335,9 @@ foreach ($allWorks as $i => $src) {
                             <p class="step__text">Вы оставляете заявку удобным способом</p>
                         </li>
                         <li class="step">
-                            <span class="step__icon"><svg aria-hidden="true"><use href="icons/sprite.svg#ruler"></use></svg></span>
-                            <h3 class="step__title">2. Замер</h3>
-                            <p class="step__text">Выезжаем на место и делаем замеры</p>
+                            <span class="step__icon"><svg aria-hidden="true"><use href="icons/sprite.svg#stone"></use></svg></span>
+                            <h3 class="step__title">2. Выбор модели</h3>
+                            <p class="step__text">Помогаем подобрать форму, гранит и размеры под ваш бюджет</p>
                         </li>
                         <li class="step">
                             <span class="step__icon"><svg aria-hidden="true"><use href="icons/sprite.svg#sketch"></use></svg></span>
@@ -440,8 +445,8 @@ foreach ($allWorks as $i => $src) {
                     <p class="stat__text"><strong>Бесплатно</strong> эскиз и расчёт стоимости</p>
                 </li>
                 <li class="stat">
-                    <img class="stat__icon" src="icons/hands-icon.png" alt="" width="56" height="56" loading="lazy">
-                    <p class="stat__text"><strong>Работаем</strong> по договору</p>
+                    <svg class="stat__icon" aria-hidden="true"><use href="icons/sprite.svg#clock"></use></svg>
+                    <p class="stat__text"><strong>Круглосуточно</strong> на связи</p>
                 </li>
             </ul>
         </div>

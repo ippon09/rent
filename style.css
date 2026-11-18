@@ -2277,6 +2277,7 @@ a.site-nav__phone-link:hover {
     height: 56px;
     object-fit: contain;
     flex-shrink: 0;
+    color: var(--gold);
 }
 
 .stat__text {
