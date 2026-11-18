@@ -1,5 +1,122 @@
 <?php
 include('path.php');
+
+// Путь к картинке с кодированием имени файла (в именах есть пробелы и скобки)
+function img_url($path)
+{
+    return implode('/', array_map('rawurlencode', explode('/', $path)));
+}
+
+// Каталог: карточка на главной + все фото категории для модального окна «Подробнее»
+$catalog = [
+    [
+        'title' => 'Памятники резные',
+        'text' => 'Художественная резьба по граниту любой сложности',
+        'cover' => 'images/granite_carved/granit_carved1.jpg',
+        'photos' => [
+            ['images/granite_carved/granit_samples.jpg', 'Образцы резных памятников', ''],
+            ['images/granite_carved/granit_carved1.jpg', 'Резной памятник из гранита', ''],
+            ['images/granite_carved/granit_carved2.jpg', 'Резной памятник из гранита', ''],
+            ['images/granite_carved/granit_carved3.jpg', 'Резной памятник из гранита', ''],
+            ['images/granite_carved/granit_carved4.jpg', 'Резной памятник из гранита', ''],
+            ['images/granite_carved/granit_carved5.jpg', 'Резной памятник из гранита', ''],
+        ],
+    ],
+    [
+        'title' => 'Памятники фигурные',
+        'text' => 'Оригинальные формы по индивидуальным эскизам',
+        'cover' => 'images/granite_figure/granit_figured1.jpg',
+        'photos' => [
+            ['images/granite_figure/granit_figured1.jpg', 'Фигурный памятник из гранита', ''],
+            ['images/granite_figure/granit_figured3.jpg', 'Фигурный памятник из гранита', ''],
+            ['images/granite_figure/granit_figured4.jpg', 'Фигурный памятник из гранита', ''],
+            ['images/granite_figure/granit_figured5.jpg', 'Фигурный памятник из гранита', ''],
+            ['images/granite_figure/granit_figured6.jpg', 'Фигурный памятник из гранита', ''],
+            ['images/granite_figure/granit_figured7.jpg', 'Фигурный памятник из гранита', ''],
+            ['images/granite_figure/granit_figured8.jpg', 'Фигурный памятник из гранита', ''],
+            ['images/granite_figure/granit_figured9.jpg', 'Фигурный памятник из гранита', ''],
+            ['images/granite_figure/granit_figured10.jpg', 'Фигурный памятник из гранита', ''],
+        ],
+    ],
+    [
+        'title' => 'Ограды',
+        'text' => 'Кованые и сварные ограды любой сложности',
+        'cover' => 'images/fences/lotos.jpg',
+        'photos' => [
+            ['images/fences/kosichka.jpg', 'Ограда «Косичка»', 'Косичка'],
+            ['images/fences/krest.jpg', 'Ограда «Крест»', 'Крест'],
+            ['images/fences/lotos.jpg', 'Ограда «Лотос»', 'Лотос'],
+            ['images/fences/muza.jpg', 'Ограда «Муза»', 'Муза'],
+        ],
+    ],
+    [
+        'title' => 'Мемориальные плиты',
+        'text' => 'Плиты из гранита для установки на могилу',
+        'cover' => 'images/signs/3.jpg',
+        'photos' => [
+            ['images/signs/3.jpg', 'Мемориальная плита из гранита', ''],
+            ['images/signs/1.jpg', 'Мемориальная плита из гранита', ''],
+            ['images/signs/2.jpg', 'Мемориальная плита из гранита', ''],
+            ['images/signs/sign_4.jpg', 'Мемориальная плита из гранита', ''],
+            ['images/signs/sign_5.jpg', 'Мемориальная плита из гранита', ''],
+        ],
+    ],
+    [
+        'title' => 'Кресты',
+        'text' => 'Кресты для установки на могилу',
+        'cover' => 'images/crosses/cross_usual.jpg',
+        'photos' => [
+            ['images/crosses/cross_usual.jpg', 'Крест на могилу', ''],
+            ['images/crosses/cross_hammer.jpg', 'Крест на могилу', ''],
+        ],
+    ],
+];
+
+// «Наши работы»: сетка с фильтрами. Первые 10 видны сразу, остальные — по кнопке «Смотреть ещё»
+$workFilters = [
+    'all' => 'Все',
+    'complex' => 'Комплексы',
+    'fence' => 'Ограды',
+    'plate' => 'Плиты',
+    'monument' => 'Памятники',
+];
+$works = [
+    ['images/monuments/111.jpg', 'complex', 'Памятник с кованой оградой и плиткой'],
+    ['images/monuments/2026-03-28 02.39.32.jpg', 'plate', 'Памятник из мрамора с цветником и плиткой'],
+    ['images/monuments/0328.jpg', 'complex', 'Памятник с кованой оградой и плиткой'],
+    ['images/monuments/2026-03-28 02.38.49.jpg', 'fence', 'Кованая ограда на два места'],
+    ['images/monuments/2026-03-28 02.37.39.jpg', 'plate', 'Горизонтальный памятник с цветником и плиткой'],
+    ['images/monuments/33.jpg', 'complex', 'Горизонтальный памятник с оградой и плиткой'],
+    ['images/monuments/1.jpg', 'monument', 'Памятник с портретом и гравировкой'],
+    ['images/monuments/2026-03-28 02.38.57.jpg', 'plate', 'Горизонтальный памятник с вазой и плиткой'],
+    ['images/monuments/1111.jpg', 'complex', 'Памятник с кованой оградой и плиткой'],
+    ['images/monuments/88.jpg', 'fence', 'Кованая ограда'],
+    ['images/monuments/0328(2).jpg', 'complex', 'Памятник с кованой оградой и плиткой'],
+    ['images/monuments/2026-03-28 02.37.43.jpg', 'plate', 'Горизонтальный памятник с плиткой'],
+    ['images/monuments/333.jpg', 'complex', 'Горизонтальный памятник с оградой и плиткой'],
+    ['images/monuments/2026-03-28 02.39.11.jpg', 'plate', 'Памятники с цветниками и плиткой'],
+    ['images/monuments/2026-03-28 02.37.03.jpg', 'fence', 'Памятник с кованой оградой'],
+    ['images/monuments/2026-03-28 02.38.46.jpg', 'plate', 'Горизонтальный памятник с цветником'],
+    ['images/monuments/4.jpg', 'monument', 'Гравировка на памятнике'],
+    ['images/monuments/2026-03-28 02.39.25.jpg', 'monument', 'Памятники с портретами'],
+    ['images/monuments/2026-03-28 02.37.08.jpg', 'monument', 'Памятник с портретом перед установкой'],
+];
+$worksVisible = 10;
+
+// «Все наши работы»: бегущие ленты из всех фото папки images/monuments (новые фото попадут сюда автоматически)
+$allWorksSkip = ['2table_back.jpg', '2026-03-28 02.39.01.jpg', '2026-03-28 02.39.07.jpg']; // фон и дубли
+$allWorks = [];
+foreach (scandir(__DIR__ . '/images/monuments') as $file) {
+    if (preg_match('/\.(jpe?g|png|webp)$/i', $file) && !in_array($file, $allWorksSkip, true)) {
+        $allWorks[] = 'images/monuments/' . $file;
+    }
+}
+natsort($allWorks);
+$allWorks = array_values($allWorks);
+$marqueeRows = [[], [], []];
+foreach ($allWorks as $i => $src) {
+    $marqueeRows[$i % 3][] = $i;
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -14,13 +131,13 @@ include('path.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=PT+Serif:wght@400;700&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="ru_RU"> 
+    <meta property="og:locale" content="ru_RU">
     <meta property="og:title" content="Ритуал 08 — изготовление памятников, Малые Дербеты">
     <meta property="og:description" content="Памятники, ограды, мемориальные плиты и кресты. Изготовление и установка по Калмыкии.">
     <meta property="og:url" content="https://xn--08-6kc5aq1api.xn--p1ai/">
@@ -50,446 +167,338 @@ include('path.php');
 </head>
 <body>
 <header class="header">
-    <!-- <div class="navbar">
-        <button class="header_burger_menu hidden">
-            <span></span>
-        </button>
-        <nav class="navi">
-            <ul class="navbar_list">
-                <li class="navbar_item"><a href="2.html">второй</a> </li>
-                <li class="navbar_item"><a href="#" data-route="fences">Ограды</a></li> 
-                <li class="navbar_item"><button style="margin: 0;" class="scroll_img nav-item">Примеры работ</button></li>
-            </ul>
-        </nav>
-    </div> -->
     <?php
     include("app/include/header.php");
     ?>
 </header>
 
+<main>
 
-    <section class="top-photo">
-        <div class="top-photo__wrapper container">        
-            <div class="top-photo__main">
-            <p class="subtitle color_gold">C 1994 ГОДА СОХРАНЯЕМ ПАМЯТЬ О БЛИЗКИХ</p>
-            <h1 class="title-hero color_white">Изготавливаем памятники и мемориальные комплексы с 1994 года</h1>
-            <p class="subtitle">Индивидуальный подход, качественные материалы и профессиональная установка под ключ.</p>
-                    <p class="subtitle p-0 mb-3">
-                        Наша компания помогает сохранить память о близких на долгие годы с заботой и вниманием к каждой
-                        детали.
-                        <br><br>
-                        Занимаемся изготовлением и установкой памятников, мемориальных плит, оградок, облицовка могил
-                        брусчаткой или гранитными плитами.
-                        <br><br>
-                        Ритуальные услуги и товары: венки, кресты, гробы.
-
-                    </p>
-            <div>
-                <button class="outline_btn">Посмотреть каталог</button>
-            </div>
-         </div>
-            <div class="advantages">
-            <div class="advantages_items">
-                <div class="advantages__item">
-                    <img class="advantages__img" src="icons/shield-icon.png" alt="advantages-icon">
-                    <div class="advantages__item-text color_white">
-                        <span class="advantages__span">30+ <br> </span>лет опыта работы
-                    </div>
-                </div>
-                <div class="advantages__item">
-                    <img class="advantages__img" src="icons/monument-icon.png" alt="advantages-icon">
-                    <div class="advantages__item-text color_white">
-                        <span class="advantages__span">1000+ <br> </span> выполненных работ
-                    </div>
-                </div>
-                <div class="advantages__item">
-                    <img class="advantages__img" src="icons/reward-icon.png" alt="advantages-icon">
-                    <div class="advantages__item-text color_white">
-                        <span class="advantages__span"></span>Бесплатный <br> эскиз и расчёт стоимости
-                    </div>
+    <!-- Первый экран -->
+    <section class="hero" id="top">
+        <div class="container hero__inner">
+            <div class="hero__main">
+                <p class="hero__eyebrow">С 1994 года сохраняем память о близких</p>
+                <h1 class="hero__title">Изготавливаем памятники и&nbsp;мемориальные комплексы с&nbsp;1994&nbsp;года</h1>
+                <p class="hero__lead">Индивидуальный подход, качественные материалы и профессиональная установка под ключ.</p>
+                <div class="hero__actions">
+                    <a class="cta cta--gold" href="#calc" data-info="calc">
+                        Рассчитать стоимость
+                        <svg class="icon" aria-hidden="true"><use href="icons/sprite.svg#calculator"></use></svg>
+                    </a>
+                    <a class="cta cta--ghost" href="#catalog" data-info="catalog">
+                        Посмотреть каталог
+                        <svg class="icon" aria-hidden="true"><use href="icons/sprite.svg#arrow-right"></use></svg>
+                    </a>
                 </div>
             </div>
 
+            <ul class="hero__facts">
+                <li class="hero-fact">
+                    <img class="hero-fact__icon" src="icons/shield-icon.png" alt="" width="48" height="48">
+                    <p class="hero-fact__text"><strong>30+</strong> лет опыта работы</p>
+                </li>
+                <li class="hero-fact">
+                    <img class="hero-fact__icon" src="icons/monument-icon.png" alt="" width="48" height="48">
+                    <p class="hero-fact__text"><strong>1000+</strong> выполненных работ</p>
+                </li>
+                <li class="hero-fact">
+                    <img class="hero-fact__icon" src="icons/reward-icon.png" alt="" width="48" height="48">
+                    <p class="hero-fact__text"><strong>Бесплатный</strong> эскиз и расчёт стоимости</p>
+                </li>
+            </ul>
         </div>
-    </div>
+    </section>
 
+    <!-- Каталог -->
+    <section class="catalog" id="catalog" aria-labelledby="catalogTitle">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Каталог</p>
+                    <h2 class="section-title section-title--rule" id="catalogTitle">Изделия из гранита и металла</h2>
+                </div>
+            </div>
 
-        <!-- <div class="d-flex justify-content-between"> -->
-        <div class="top_info container hidden">
-            <div class="d-flex justify-content-between">
-                <div class="text-center">
-                    <h2 class="top_info_title">Ритуальные услуги</h2>
-                    <!-- <p class="">Наша компания занимается изготовлением памятников различной формы и сложности, помогая сохранить память о близких на долгие годы <br> с заботой и вниманием к каждой детали.</p> -->
-                    <p class="p-0 m-0">
-                        Наша компания помогает сохранить память о близких на долгие годы с заботой и вниманием к каждой
-                        детали.
-                        <br><br>
-                        Занимаемся изготовлением и установкой памятников, мемориальных плит, оградок, облицовка могил
-                        брусчаткой или гранитными плитами.
-                        <br>
-                        Ритуальные товары (венки, кресты, гробы)
-                    </p>
+            <ul class="catalog__grid">
+                <?php foreach ($catalog as $item): ?>
+                <li class="catalog-card">
+                    <div class="catalog-card__media">
+                        <img src="<?php echo img_url($item['cover']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" loading="lazy">
+                    </div>
+                    <div class="catalog-card__body">
+                        <h3 class="catalog-card__title"><?php echo $item['title']; ?></h3>
+                        <p class="catalog-card__text"><?php echo $item['text']; ?></p>
+                        <button class="catalog-card__more" type="button" data-gallery-title="<?php echo htmlspecialchars($item['title']); ?>">
+                            Подробнее
+                            <svg class="icon" aria-hidden="true"><use href="icons/sprite.svg#arrow-right"></use></svg>
+                        </button>
+                        <template class="catalog-card__photos">
+                            <?php foreach ($item['photos'] as $photo): ?>
+                            <img src="<?php echo img_url($photo[0]); ?>" alt="<?php echo htmlspecialchars($photo[1]); ?>" data-caption="<?php echo htmlspecialchars($photo[2]); ?>">
+                            <?php endforeach; ?>
+                        </template>
+                    </div>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </section>
 
-                    <a class="phone_number_top phone_number" href="tel:89275959070">8-927-59-59-070 </a>
-                    <a class="phone_number_top phone_number m-0" href="tel:89275959070">8-903-37-69-002 </a>
+    <!-- Калькулятор + О компании + Этапы -->
+    <section class="details">
+        <div class="container details__grid">
 
-                    <p class="p-0 m-0">С 1994 года создаём памятники, которые стоят десятилетиями. </p>
-                    <ol class="soc_links soc_links_top">
-                        <!-- <li><a href="#"><img class="soc_link_top_img" src="images/tg.png" alt=""></a></li> -->
-                        <li><a href="https://max.ru/u/f9LHodD0cOLP1rdKr3fKwUz4Av5NfHLAGAwXr_2PeoNNa9QbEokncFgM-uk"><img
-                                    class="soc_link_top_img" src="images/max.png" alt=""></a></li>
+            <form class="calc" id="calc" aria-labelledby="calcTitle" novalidate>
+                <p class="eyebrow eyebrow--light">Рассчитайте стоимость</p>
+                <h2 class="calc__title" id="calcTitle">Узнайте стоимость памятника</h2>
+                <p class="calc__lead">Выберите параметры — мастер рассчитает цену и ответит в Max или по телефону.</p>
+
+                <fieldset class="calc__group">
+                    <legend class="calc__legend">1. Тип памятника</legend>
+                    <div class="calc__options">
+                        <label class="calc-option"><input type="radio" name="type" value="Вертикальный памятник" checked><span>Вертикальный</span></label>
+                        <label class="calc-option"><input type="radio" name="type" value="Горизонтальный памятник"><span>Горизонтальный</span></label>
+                        <label class="calc-option"><input type="radio" name="type" value="Мемориальный комплекс"><span>Комплекс</span></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="calc__group">
+                    <legend class="calc__legend">2. Материал</legend>
+                    <div class="calc__options">
+                        <label class="calc-option"><input type="radio" name="material" value="гранит" checked><span>Гранит</span></label>
+                        <label class="calc-option"><input type="radio" name="material" value="мрамор"><span>Мрамор</span></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="calc__group">
+                    <legend class="calc__legend">3. Дополнительные услуги</legend>
+                    <div class="calc__options calc__options--checks">
+                        <label class="calc-check"><input type="checkbox" name="extra" value="установка"><span class="calc-check__box" aria-hidden="true"><svg class="icon"><use href="icons/sprite.svg#check"></use></svg></span>Установка</label>
+                        <label class="calc-check"><input type="checkbox" name="extra" value="ограда"><span class="calc-check__box" aria-hidden="true"><svg class="icon"><use href="icons/sprite.svg#check"></use></svg></span>Ограда</label>
+                        <label class="calc-check"><input type="checkbox" name="extra" value="благоустройство"><span class="calc-check__box" aria-hidden="true"><svg class="icon"><use href="icons/sprite.svg#check"></use></svg></span>Благоустройство</label>
+                    </div>
+                </fieldset>
+
+                <div class="calc__footer">
+                    <div class="calc__summary">
+                        <p class="calc__summary-label">Ваш выбор</p>
+                        <p class="calc__summary-value" id="calcSummary" aria-live="polite">Вертикальный памятник, гранит</p>
+                    </div>
+                    <button type="submit" class="cta cta--gold">
+                        <svg class="icon" aria-hidden="true"><use href="icons/sprite.svg#calculator"></use></svg>
+                        Получить расчёт
+                    </button>
+                </div>
+                <p class="calc__note">Или позвоните: <a href="tel:+79275959070">8-927-59-59-070</a></p>
+            </form>
+
+            <div class="info-panel">
+                <div class="why" id="about">
+                    <h2 class="section-title section-title--rule section-title--sm">Почему выбирают нас</h2>
+                    <p class="why__text">Изготавливаем и устанавливаем памятники, мемориальные плиты и ограды, облицовываем могилы брусчаткой и гранитной плиткой. Ритуальные услуги и товары: венки, кресты, гробы.</p>
+                    <ul class="why__list">
+                        <li class="why-item">
+                            <svg class="why-item__icon" aria-hidden="true"><use href="icons/sprite.svg#factory"></use></svg>
+                            <h3 class="why-item__title">Собственное производство</h3>
+                            <p class="why-item__text">Контроль качества на каждом этапе изготовления</p>
+                        </li>
+                        <li class="why-item">
+                            <svg class="why-item__icon" aria-hidden="true"><use href="icons/sprite.svg#stone"></use></svg>
+                            <h3 class="why-item__title">Качественные материалы</h3>
+                            <p class="why-item__text">Используем только проверенный гранит и металл</p>
+                        </li>
+                        <!-- <li class="why-item">
+                            <svg class="why-item__icon" aria-hidden="true"><use href="icons/sprite.svg#contract"></use></svg>
+                            <h3 class="why-item__title">Работаем по договору</h3>
+                            <p class="why-item__text">Прозрачные условия и фиксированные сроки</p>
+                        </li> -->
+                        <li class="why-item">
+                            <svg class="why-item__icon" aria-hidden="true"><use href="icons/sprite.svg#crane"></use></svg>
+                            <h3 class="why-item__title">Профессиональная установка</h3>
+                            <p class="why-item__text">Опытные бригады и аккуратный монтаж</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="steps" id="steps">
+                    <h2 class="section-title section-title--sm">Этапы работы</h2>
+                    <ol class="steps__list">
+                        <li class="step">
+                            <span class="step__icon"><svg aria-hidden="true"><use href="icons/sprite.svg#request"></use></svg></span>
+                            <h3 class="step__title">1. Заявка</h3>
+                            <p class="step__text">Вы оставляете заявку удобным способом</p>
+                        </li>
+                        <li class="step">
+                            <span class="step__icon"><svg aria-hidden="true"><use href="icons/sprite.svg#ruler"></use></svg></span>
+                            <h3 class="step__title">2. Замер</h3>
+                            <p class="step__text">Выезжаем на место и делаем замеры</p>
+                        </li>
+                        <li class="step">
+                            <span class="step__icon"><svg aria-hidden="true"><use href="icons/sprite.svg#sketch"></use></svg></span>
+                            <h3 class="step__title">3. Макет</h3>
+                            <p class="step__text">Согласовываем эскиз и детали проекта</p>
+                        </li>
+                        <li class="step">
+                            <span class="step__icon"><svg aria-hidden="true"><use href="icons/sprite.svg#chisel"></use></svg></span>
+                            <h3 class="step__title">4. Изготовление</h3>
+                            <p class="step__text">Изготавливаем изделие на производстве</p>
+                        </li>
+                        <li class="step">
+                            <span class="step__icon"><svg aria-hidden="true"><use href="icons/sprite.svg#monument"></use></svg></span>
+                            <h3 class="step__title">5. Установка</h3>
+                            <p class="step__text">Доставляем и устанавливаем</p>
+                        </li>
                     </ol>
                 </div>
-
-                <div class="advantages">
-                    <div class="advantages_items">
-                        <div class="advantages__item">
-                            <img class="advantages__img" src="images/monument.png" alt="advantages-icon">
-                            <div class="advantages__item-text">
-                                <span class="advantages__span">30+ лет</span> опыта работы
-                            </div>
-                        </div>
-                        <div class="advantages__item">
-                            <img class="advantages__img" src="images/monument.png" alt="advantages-icon">
-                            <div class="advantages__item-text">
-                                <span class="advantages__span">1000+</span> выполненных работ
-                            </div>
-                        </div>
-                        <div class="advantages__item">
-                            <img class="advantages__img" src="images/monument.png" alt="advantages-icon">
-                            <div class="advantages__item-text">
-                                <span class="advantages__span">1000+</span> установленных памятников
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="top-photo__text hidden">
-            p.
-        </div>
-
-
-
-        <!-- </div> -->
-        <div id="scroll" class="scroll_block"><img id="mouse" data-info="examples-section" class="scroll_img "
-                src="images/scroll.png" alt="">
-        </div>
-    </section>
-
-
-
-
-    <section id="granite_carved-section" class="granite_carved-section">
-        <div class="gallery gallery_blue">
-            <div class="container">
-                <div class="introduce-block" style="max-width: 500px;">
-                    <p class="subtitle mb1" style="font-size: 55px;">Памятники резные </p>
-                </div>
-
-                <div class="swiper swiper-carved">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="images/granite_carved/granit_samples.jpg" alt="sample">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/granite_carved/granit_carved1.jpg" alt="img">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/granite_carved/granit_carved2.jpg" alt="img">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/granite_carved/granit_carved3.jpg" alt="img">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/granite_carved/granit_carved4.jpg" alt="img">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/granite_carved/granit_carved5.jpg" alt="img">
-                        </div>
-                    </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </div>
-
-
-    </section>
-    <section id="granite_figure-section" class="granite_figure-section">
-        <div class="gallery gallery_blue">
-            <div class="container">
-                <div class="introduce-block" style="max-width: 500px;">
-                    <p class="subtitle mb1" style="font-size: 55px;">Памятники фигурные </p>
-                </div>
-
-                <div class="swiper swiper-carved">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img loading="lazy" src="images/granite_figure/granit_figured1.jpg" alt="img1">
-                        </div>
-                        <div class="swiper-slide">
-                            <img loading="lazy" src="images/granite_figure/granit_figured3.jpg" alt="img2">
-                        </div>
-                        <div class="swiper-slide">
-                            <img loading="lazy" src="images/granite_figure/granit_figured4.jpg" alt="img3">
-                        </div>
-                        <div class="swiper-slide">
-                            <img loading="lazy" src="images/granite_figure/granit_figured5.jpg" alt="img4">
-                        </div>
-                        <div class="swiper-slide">
-                            <img loading="lazy" src="images/granite_figure/granit_figured6.jpg" alt="img5">
-                        </div>
-                        <div class="swiper-slide">
-                            <img loading="lazy" src="images/granite_figure/granit_figured7.jpg" alt="img6">
-                        </div>
-                        <div class="swiper-slide">
-                            <img loading="lazy" src="images/granite_figure/granit_figured8.jpg" alt="img7">
-                        </div>
-                        <div class="swiper-slide">
-                            <img loading="lazy" src="images/granite_figure/granit_figured9.jpg" alt="img8">
-                        </div>
-                        <div class="swiper-slide">
-                            <img loading="lazy" src="images/granite_figure/granit_figured10.jpg" alt="img8">
-                        </div>
-                    </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </div>
-
-
-    </section>
-
-    <section id="fences-section" class="fences-section">
-        <div class="gallery">
-            <div class="container">
-                <p class="subtitle mb1" style="font-size: 55px;">Ограды</p>
-                <div class="gallery_two mb20">
-                    <div class="section-item">
-                        <img loading="lazy" src="images/fences/kosichka.jpg" alt="aa">
-                        <p>Косичка</p>
-                    </div>
-                    <div class="section-item">
-                        <img loading="lazy" src="images/fences/krest.jpg" alt="aa">
-                        <p>Крест</p>
-                    </div>
-                    <div class="section-item">
-                        <img loading="lazy" src="images/fences/lotos.jpg" alt="">
-                        <p>Лотос</p>
-
-                    </div>
-
-                    <div class="section-item">
-                        <img loading="lazy" src="images/fences/muza.jpg" alt="">
-                        <p>Муза</p>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="signs-section" class="signs-section">
-        <div class="gallery gallery_blue">
-            <div class="container">
-                <p class="subtitle mb1" style="font-size: 55px;">Мемориальные плиты</p>
-                <div class="gallery_two mb20">
-                    <div class="section-item">
-                        <div class="section-item_img-wrapper">
-                            <img loading="lazy" src="images//signs/3.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="section-item">
-                        <div class="section-item_img-wrapper">
-                            <img loading="lazy" src="images/signs/1.jpg" alt="aa">
-                        </div>
-                    </div>
-                    <div class="section-item">
-                        <div class="section-item_img-wrapper">
-                            <img loading="lazy" src="images/signs/2.jpg" alt="aa">
-                        </div>
-                    </div>
-                    <div class="section-item">
-                        <div class="section-item_img-wrapper">
-                            <img loading="lazy" src="images/signs/sign_4.jpg" alt="aa">
-                        </div>
-                    </div>
-                    <div class="section-item">
-                        <div class="section-item_img-wrapper">
-                            <img loading="lazy" src="images/signs/sign_5.jpg" alt="aa">
-                        </div>
-                    </div>
-
-
-
-                </div>
             </div>
 
         </div>
     </section>
-    <section id="cross-section" class="cross-section">
+
+    <!-- Наши работы -->
+    <section class="works" id="works" aria-labelledby="worksTitle">
         <div class="container">
-            <div class="gallery">
-                <p class="subtitle mb1" style="font-size: 55px;">Кресты</p>
-
-
-                <div class="gallery-couple swiper couple-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img loading="lazy" src="images/crosses/cross_usual.jpg" alt="img">
-                        </div>
-                        <div class="swiper-slide"><img loading="lazy" src="images/crosses/cross_hammer.jpg" alt="img">
-                        </div>
-                    </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+            <div class="works__head">
+                <h2 class="section-title" id="worksTitle">Наши работы</h2>
+                <div class="works__filters" role="group" aria-label="Фильтр работ">
+                    <?php foreach ($workFilters as $key => $label): ?>
+                    <button class="chip<?php echo $key === 'all' ? ' is-active' : ''; ?>" type="button" data-filter="<?php echo $key; ?>" aria-pressed="<?php echo $key === 'all' ? 'true' : 'false'; ?>"><?php echo $label; ?></button>
+                    <?php endforeach; ?>
                 </div>
+            </div>
 
+            <ul class="works__grid">
+                <?php foreach ($works as $i => $work): ?>
+                <li class="works__item<?php echo $i >= $worksVisible ? ' is-extra' : ''; ?>" data-cat="<?php echo $work[1]; ?>">
+                    <button class="works__btn" type="button" aria-label="Открыть фото: <?php echo htmlspecialchars($work[2]); ?>">
+                        <img src="<?php echo img_url($work[0]); ?>" alt="<?php echo htmlspecialchars($work[2]); ?>" loading="lazy">
+                    </button>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+
+            <div class="works__more-wrap">
+                <button class="cta cta--dark works__more" type="button">
+                    Смотреть ещё
+                    <svg class="icon" aria-hidden="true"><use href="icons/sprite.svg#chevron-down"></use></svg>
+                </button>
             </div>
         </div>
     </section>
-    <section id="examples-section" class="examples-section">
-        <div class="gallery gallery_blue">
-            <div class="container">
 
-
-
-                <div class="introduce-block" style="max-width: 500px;">
-                    <p class="subtitle mb1" style="font-size: 55px;">Наши работы </p>
-                </div>
-
-
-
-                <div class="swiper swiper-monuments hidden">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide">
-                            <div class="gallery-couple">
-                                <div>
-                                    <img loading="lazy" src="images/monuments/111.jpg" alt="aa">
-                                </div>
-                                <div>
-                                    <img loading="lazy" src="images/monuments/1111.jpg" alt="aa">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="gallery-couple">
-                                <div>
-                                    <img loading="lazy" src="images/monuments/0328.jpg" alt="0328">
-                                </div>
-                                <div>
-                                    <img loading="lazy" src="images/monuments/0328(2).jpg" alt="0328">
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="swiper-slide">
-                            <div class="gallery-couple">
-                                <div>
-                                    <img loading="lazy" src="images/monuments/33.jpg" alt="">
-                                </div>
-                                <div>
-                                    <img loading="lazy" src="images/monuments/333.jpg" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-                        ...
-                    </div>
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
-
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-
-                    <!-- If we need scrollbar -->
-                    <div class="swiper-scrollbar"></div>
-                </div>
-
-
-                <div class="gallery__list">
-                    <div class="gallery_two mb20">
-
-                        <div class="gallery-couple swiper couple-swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img loading="lazy" src="images/monuments/111.jpg" alt="aa">
-                                </div>
-                                <div class="swiper-slide"><img loading="lazy" src="images/monuments/1111.jpg" alt="aa">
-                                </div>
-                            </div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-
-                        <div class="gallery-couple swiper couple-swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img loading="lazy" src="images/monuments/0328.jpg"
-                                        alt="0328"></div>
-                                <div class="swiper-slide"><img loading="lazy" src="images/monuments/0328(2).jpg"
-                                        alt="0328"></div>
-                            </div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-
-                        <div class="gallery-couple swiper couple-swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img loading="lazy" src="images/monuments/33.jpg" alt="">
-                                </div>
-                                <div class="swiper-slide"><img loading="lazy" src="images/monuments/333.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-
-                        <div class="gallery-couple swiper couple-swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img loading="lazy" src="images/monuments/1.jpg" alt=""></div>
-                                <div class="swiper-slide"><img loading="lazy" src="images/monuments/4.jpg" alt=""></div>
-                            </div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- </div> -->
-            </div>
+    <!-- Все наши работы: бегущие ленты -->
+    <section class="all-works" id="all-works" aria-labelledby="allWorksTitle">
+        <div class="container">
+            <h2 class="section-title" id="allWorksTitle">Все наши работы</h2>
+            <p class="section-lead">Реальные объекты, которые мы изготовили и установили. Наведите, чтобы остановить ленту, нажмите на фото, чтобы рассмотреть.</p>
         </div>
 
+        <div class="marquee">
+            <?php foreach ($marqueeRows as $r => $row):
+                if (!$row) continue;
+                // скорость ~40px/с: длина ряда = кол-во фото × (ширина 220 + отступ 12)
+                $duration = max(30, round(count($row) * 232 / 40));
+            ?>
+            <div class="marquee__row<?php echo $r % 2 ? ' marquee__row--reverse' : ''; ?>" style="--marquee-duration: <?php echo $duration; ?>s">
+                <ul class="marquee__track">
+                    <?php for ($copy = 0; $copy < 2; $copy++): ?>
+                        <?php foreach ($row as $idx): ?>
+                        <li class="marquee__item"<?php echo $copy ? ' aria-hidden="true"' : ''; ?>>
+                            <button class="marquee__btn" type="button" data-index="<?php echo $idx; ?>"<?php echo $copy ? ' tabindex="-1"' : ''; ?> aria-label="Открыть фото работы">
+                                <img src="<?php echo img_url($allWorks[$idx]); ?>" alt="" loading="lazy">
+                            </button>
+                        </li>
+                        <?php endforeach; ?>
+                    <?php endfor; ?>
+                </ul>
+            </div>
+            <?php endforeach; ?>
+        </div>
 
-
+        <script type="application/json" id="allWorksData"><?php
+            echo json_encode(array_map(function ($src) {
+                return ['src' => img_url($src), 'alt' => 'Работа «Ритуал 08»'];
+            }, $allWorks), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        ?></script>
     </section>
 
+    <!-- Цифры -->
+    <section class="stats" aria-label="Ритуал 08 в цифрах">
+        <div class="container">
+            <ul class="stats__list">
+                <li class="stat">
+                    <img class="stat__icon" src="icons/reward-icon.png" alt="" width="56" height="56" loading="lazy">
+                    <p class="stat__text"><strong>30+</strong> лет на рынке</p>
+                </li>
+                <li class="stat">
+                    <img class="stat__icon" src="icons/monument-icon.png" alt="" width="56" height="56" loading="lazy">
+                    <p class="stat__text"><strong>1000+</strong> установленных памятников</p>
+                </li>
+                <li class="stat">
+                    <img class="stat__icon" src="icons/star-icon.png" alt="" width="56" height="56" loading="lazy">
+                    <p class="stat__text"><strong>Бесплатно</strong> эскиз и расчёт стоимости</p>
+                </li>
+                <li class="stat">
+                    <img class="stat__icon" src="icons/hands-icon.png" alt="" width="56" height="56" loading="lazy">
+                    <p class="stat__text"><strong>Работаем</strong> по договору</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+</main>
 
     <?php
     include("app/include/footer.php");
     ?>
 
-    <div class="modal fade maxModal" tabindex="-1" role="dialog" aria-labelledby="maxModalLabel" aria-hidden="true"
-        id="maxModal">
-        <div class="modal-dialog">
+    <!-- Галерея: фото категории каталога и фото работ -->
+    <div class="modal fade gallery-modal" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5>Заголовок</h5>
-                    <button data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title gallery-modal__title" id="galleryModalTitle">Фото</h2>
+                    <button type="button" class="gallery-modal__close" data-bs-dismiss="modal" aria-label="Закрыть">
+                        <svg class="icon" aria-hidden="true"><use href="icons/sprite.svg#close"></use></svg>
+                    </button>
                 </div>
                 <div class="modal-body">
-                    Ссылка скопирована в буфер обмена, теперь вы можете ее добавить к любому чату в Max.
+                    <div class="swiper gallery-swiper">
+                        <div class="swiper-wrapper"></div>
+                        <button class="gallery-swiper__nav gallery-swiper__nav--prev" type="button" aria-label="Предыдущее фото">
+                            <svg class="icon" aria-hidden="true"><use href="icons/sprite.svg#chevron-left"></use></svg>
+                        </button>
+                        <button class="gallery-swiper__nav gallery-swiper__nav--next" type="button" aria-label="Следующее фото">
+                            <svg class="icon" aria-hidden="true"><use href="icons/sprite.svg#chevron-right"></use></svg>
+                        </button>
+                    </div>
+                    <p class="gallery-swiper__counter" aria-live="polite"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Заявка из калькулятора: текст копируется, клиент вставляет его в чат Max -->
+    <div class="modal fade maxModal" id="maxModal" tabindex="-1" aria-labelledby="maxModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="maxModalLabel">Заявка готова</h2>
+                    <button type="button" class="gallery-modal__close gallery-modal__close--dark" data-bs-dismiss="modal" aria-label="Закрыть">
+                        <svg class="icon" aria-hidden="true"><use href="icons/sprite.svg#close"></use></svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="maxModal__status" id="maxModalStatus">Текст заявки скопирован в буфер обмена. Откройте чат в Max и вставьте его — мастер ответит с расчётом.</p>
+                    <textarea class="maxModal__text" id="maxModalText" rows="4" readonly aria-label="Текст заявки"></textarea>
                 </div>
                 <div class="modal-footer">
-                    <button data-dismiss="modal">Закрыть</button>
-                    <button>Сохранить</button>
+                    <a class="cta cta--outline" href="tel:+79275959070">
+                        <svg class="icon" aria-hidden="true"><use href="icons/sprite.svg#phone"></use></svg>
+                        Позвонить
+                    </a>
+                    <a class="cta cta--gold" href="https://max.ru/u/f9LHodD0cOLP1rdKr3fKwUz4Av5NfHLAGAwXr_2PeoNNa9QbEokncFgM-uk" target="_blank" rel="noopener">Открыть Max</a>
                 </div>
             </div>
         </div>
@@ -497,48 +506,9 @@ include('path.php');
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
-
-
-
-
-<script>
-    // Инициализация слайдеров для каждого gallery-couple отдельно
-    document.querySelectorAll('.couple-swiper').forEach(function (el) {
-        new Swiper(el, {
-            // loop: true,
-            slidesPerView: 'auto',
-            spaceBetween: 10,
-            navigation: {
-                nextEl: el.querySelector('.swiper-button-next'),
-                prevEl: el.querySelector('.swiper-button-prev'),
-            },
-        });
-    });
-
-
-    new Swiper('.swiper-carved', {
-        slidesPerView: 'auto',
-        spaceBetween: 10,
-        navigation: {
-            nextEl: '.swiper-carved .swiper-button-next',
-            prevEl: '.swiper-carved .swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-carved .swiper-pagination',
-            type: 'fraction',
-        },
-        breakpoints: {
-            992: {
-                slidesPerView: 2,
-                spaceBetween: 10,
-            }
-        }
-    });
-</script>
+    <script src="js.js"></script>
 </body>
 
 </html>
